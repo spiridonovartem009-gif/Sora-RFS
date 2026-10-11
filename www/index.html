@@ -2514,8 +2514,17 @@ footer { flex: none; padding-block: 10px 12px; }
     if (!url || typeof url !== 'string') return null;
     return function (input, opts) {
       return fetch(url, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ messages: input }), signal: opts && opts.signal })
-        .then(function (r) { if (!r.ok) throw { code: 'unavailable' }; return r.json(); })
-        .then(function (j) { var t = (j && j.text) || ''; if (opts && opts.onText && t) opts.onText({ text: t, delta: t }); return { text: t, truncated: !!(j && j.truncated) }; });
+        .then(function (r) {
+          if (r.ok) return r.json();
+          return r.json().catch(function () { return null; }).then(function (j) {
+            var m = (j && (j.error && j.error.message || j.error)) || '';
+            throw { code: r.status === 429 ? 'rate_limited' : (r.status === 401 || r.status === 403) ? 'gemini_key' : 'gemini_fail', status: r.status, detail: String(m).slice(0, 160) };
+          });
+        })
+        .then(function (j) { var t = (j && j.text) || ''; if (opts && opts.onText && t) opts.onText({ text: t, delta: t }); return { text: t, truncated: !!(j && j.truncated) }; }, function (e) {
+          if (e && e.code) throw e;
+          throw { code: 'gemini_net', detail: String(e && e.message || e).slice(0, 120) };
+        });
     };
   }
   /* ---------- локальный «ассистент» без сервера: работает в APK, когда нет ни Claude, ни SORA_API ---------- */
