@@ -1,0 +1,7 @@
+{
+  "appId": "com.sorarfs.app",
+  "appName": "Sora RFS",
+  "webDir": "www",
+  "server": { "androidScheme": "https" },
+  "android": { "backgroundColor": "#060B22" }
+}
