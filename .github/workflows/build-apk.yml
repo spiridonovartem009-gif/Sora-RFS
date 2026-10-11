@@ -31,3 +31,4 @@ jobs:
         with:
           name: sora-rfs-apk
           path: ${{ env.APP }}/android/app/build/outputs/apk/debug/app-debug.apk
+          
