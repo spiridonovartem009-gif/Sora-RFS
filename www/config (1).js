@@ -1,6 +1,6 @@
 window.SORA_API = '';
 /* Встроенный ключ Gemini: вставь свой ключ между кавычками, например 'AIza...'. Тогда вводить его в профиле не нужно. */
-window.SORA_GEMINI_KEY = '';
+window.SORA_GEMINI_KEY = 'AQ.Ab8RN6JptzVqoCpTY3AvyG5v8EXnrgypePe3rgZu8AKuCoccXQ';
 /* Страховка для Android WebView: если видео не стартует напрямую, пробуем загрузить его целиком и играть из памяти. */
 (function () {
   function note(msg) {
