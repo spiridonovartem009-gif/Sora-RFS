@@ -1,4 +1,4 @@
-window.SORA_API = 'https://sorarfs10.spiridonovartem009.workers.dev/';
+window.SORA_API = 'https://white-thunder-2ce7.spiridonovartem009.workers.dev/';
 /* Встроенный ключ Gemini: вставь свой ключ между кавычками, например 'AIza...'. Тогда вводить его в профиле не нужно. */
 window.SORA_GEMINI_KEY = '';
 /* Страховка для Android WebView: если видео не стартует напрямую, пробуем загрузить его целиком и играть из памяти. */
