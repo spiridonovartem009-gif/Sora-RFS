@@ -2523,7 +2523,7 @@ footer { flex: none; padding-block: 10px 12px; }
         })
         .then(function (j) { var t = (j && j.text) || ''; if (opts && opts.onText && t) opts.onText({ text: t, delta: t }); return { text: t, truncated: !!(j && j.truncated) }; }, function (e) {
           if (e && e.code) throw e;
-          throw { code: 'gemini_net', detail: String(e && e.message || e).slice(0, 120) };
+          throw { code: 'gemini_net', detail: 'адрес ' + url.replace(/^https?:\/\//, '').split('/')[0] + ': ' + String(e && e.message || e).slice(0, 100) };
         });
     };
   }
