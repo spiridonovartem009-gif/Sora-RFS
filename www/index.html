@@ -3137,7 +3137,8 @@ footer { flex: none; padding-block: 10px 12px; }
   function geminiSample() {
     var key = geminiKey();
     if (!key) return null;
-    var models = window.SORA_GEMINI_MODEL ? [window.SORA_GEMINI_MODEL] : ['gemini-2.5-flash', 'gemini-flash-latest', 'gemini-2.5-flash-lite', 'gemini-2.0-flash'];
+    var models = window.SORA_GEMINI_MODEL ? [window.SORA_GEMINI_MODEL] : ['gemini-3.8-flash', 'gemini-3.1-flash-lite', 'gemini-2.5-flash', 'gemini-flash-latest'];
+    var think0 = true; /* «глубокое мышление» выключено: ответы быстрее, а лимит запросов в день не тратится зря */
     var good = 0; /* индекс модели, которая уже ответила */
     function fail(r, j) {
       var m = (j && j.error && j.error.message) || '';
@@ -3146,7 +3147,7 @@ footer { flex: none; padding-block: 10px 12px; }
     }
     return function (input, opts) {
       var contents = input.map(function (m) { return { role: m.role === 'assistant' ? 'model' : 'user', parts: [{ text: m.content }] }; });
-      var body = { contents: contents, generationConfig: { maxOutputTokens: 2048 } };
+      function bodyStr() { return JSON.stringify({ contents: contents, generationConfig: think0 ? { maxOutputTokens: 2048, thinkingConfig: { thinkingBudget: 0 } } : { maxOutputTokens: 2048 } }); }
       var sig = opts && opts.signal;
       function hdr() { return { 'Content-Type': 'application/json', 'x-goog-api-key': key }; }
       function textOf(j) {
@@ -3155,7 +3156,7 @@ footer { flex: none; padding-block: 10px 12px; }
         return { add: ps.filter(function (x) { return !x.thought; }).map(function (x) { return x.text || ''; }).join(''), trunc: c.finishReason === 'MAX_TOKENS' };
       }
       function plain(model) { /* обычный запрос без потока: запасной путь */
-        return fetch('https://generativelanguage.googleapis.com/v1beta/models/' + model + ':generateContent', { method: 'POST', headers: hdr(), body: JSON.stringify(body), signal: sig })
+        return fetch('https://generativelanguage.googleapis.com/v1beta/models/' + model + ':generateContent', { method: 'POST', headers: hdr(), body: bodyStr(), signal: sig })
           .then(function (r) {
             return r.json().catch(function () { return null; }).then(function (j) {
               if (!r.ok) throw fail(r, j);
@@ -3167,7 +3168,7 @@ footer { flex: none; padding-block: 10px 12px; }
           });
       }
       function stream(model) {
-        return fetch('https://generativelanguage.googleapis.com/v1beta/models/' + model + ':streamGenerateContent?alt=sse', { method: 'POST', headers: hdr(), body: JSON.stringify(body), signal: sig })
+        return fetch('https://generativelanguage.googleapis.com/v1beta/models/' + model + ':streamGenerateContent?alt=sse', { method: 'POST', headers: hdr(), body: bodyStr(), signal: sig })
           .then(function (r) {
             if (!r.ok) return r.json().catch(function () { return null; }).then(function (j) { throw fail(r, j); });
             if (!r.body || !r.body.getReader) throw { code: 'nostream' };
@@ -3195,6 +3196,7 @@ footer { flex: none; padding-block: 10px 12px; }
         var model = models[i];
         return stream(model).catch(function (e) {
           if (sig && sig.aborted) throw e;
+          if (think0 && e && e.status === 400 && /thinking/i.test(e.detail || '')) { think0 = false; return run(i); } /* модель не принимает отключение мышления */
           if (e && (e.code === 'gemini_key' || e.code === 'rate_limited')) throw e;
           if (e && e.status === 404) { if (i + 1 < models.length) return run(i + 1); throw e; }
           /* поток не удался (сеть, WebView, пустой ответ): пробуем обычный запрос */
