@@ -2147,6 +2147,7 @@ footer { flex: none; padding-block: 10px 12px; }
         if (v) { try { if (window.Notification && Notification.permission === 'default') Notification.requestPermission(); } catch (e) {} }
       }),
       (!window.claude ? (function () { var g = el('button', 'mbtn alt'); g.type = 'button'; g.textContent = 'Чат: Gemini' + (geminiKey() ? ' ✓' : ''); g.addEventListener('click', openGeminiKey); return g; })() : null),
+      (!window.claude && window.SORA_API ? (function () { var g = el('button', 'mbtn alt'); g.type = 'button'; g.textContent = 'Проверка связи'; g.addEventListener('click', openNetTest); return g; })() : null),
       sb, cl, lo
     ].filter(Boolean));
   }
@@ -2509,23 +2510,56 @@ footer { flex: none; padding-block: 10px 12px; }
 
   /* ---------- запрос к ассистенту ---------- */
   /* вне Claude (например, в APK) ответы приходят с твоего сервера: адрес задаётся в config.js как window.SORA_API */
+  /* нативный HTTP Capacitor: запасной путь, если WebView не смог сделать обычный fetch */
+  function nativeHttp() { try { var c = window.Capacitor; return (c && c.Plugins && c.Plugins.CapacitorHttp && typeof c.Plugins.CapacitorHttp.request === 'function') ? c.Plugins.CapacitorHttp : null; } catch (e) { return null; } }
   function remoteSample() {
     var url = window.SORA_API;
     if (!url || typeof url !== 'string') return null;
+    var host = url.replace(/^https?:\/\//, '').split('/')[0];
     return function (input, opts) {
-      return fetch(url, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ messages: input }), signal: opts && opts.signal })
-        .then(function (r) {
-          if (r.ok) return r.json();
-          return r.json().catch(function () { return null; }).then(function (j) {
-            var m = (j && (j.error && j.error.message || j.error)) || '';
-            throw { code: r.status === 429 ? 'rate_limited' : (r.status === 401 || r.status === 403) ? 'gemini_key' : 'gemini_fail', status: r.status, detail: String(m).slice(0, 160) };
-          });
-        })
-        .then(function (j) { var t = (j && j.text) || ''; if (opts && opts.onText && t) opts.onText({ text: t, delta: t }); return { text: t, truncated: !!(j && j.truncated) }; }, function (e) {
+      var sig = opts && opts.signal;
+      return fetch(url, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ messages: input }), signal: sig })
+        .then(function (r) { return r.json().catch(function () { return null; }).then(function (j) { return { ok: r.ok, status: r.status, j: j }; }); },
+          function (err) {
+            var N = nativeHttp();
+            if ((sig && sig.aborted) || !N) throw err;
+            return N.request({ url: url, method: 'POST', headers: { 'Content-Type': 'application/json' }, data: { messages: input } }).then(function (res) {
+              var d = res.data; if (typeof d === 'string') { try { d = JSON.parse(d); } catch (e) { d = null; } }
+              return { ok: res.status >= 200 && res.status < 300, status: res.status, j: d };
+            });
+          })
+        .then(function (x) {
+          if (!x.ok) {
+            var m = (x.j && (x.j.error && x.j.error.message || x.j.error)) || '';
+            throw { code: x.status === 429 ? 'rate_limited' : (x.status === 401 || x.status === 403) ? 'gemini_key' : 'gemini_fail', status: x.status, detail: String(m).slice(0, 160) };
+          }
+          var t = (x.j && x.j.text) || '';
+          if (opts && opts.onText && t) opts.onText({ text: t, delta: t });
+          return { text: t, truncated: !!(x.j && x.j.truncated) };
+        }, function (e) {
           if (e && e.code) throw e;
-          throw { code: 'gemini_net', detail: 'адрес ' + url.replace(/^https?:\/\//, '').split('/')[0] + ': ' + String(e && e.message || e).slice(0, 100) };
+          throw { code: 'gemini_net', detail: 'адрес ' + host + ': ' + String(e && (e.message || e.errorMessage) || e).slice(0, 100) + (nativeHttp() ? ' (нативный запрос тоже не прошёл)' : '') };
         });
     };
+  }
+  /* проверка связи с сервером чата: профиль → «Проверка связи» */
+  function openNetTest() {
+    var url = window.SORA_API, out = el('p', 'fine'); out.style.whiteSpace = 'pre-wrap'; out.style.wordBreak = 'break-all';
+    var lines = ['Адрес: ' + (url || 'не задан (SORA_API пуст)'), 'Capacitor: ' + (window.Capacitor ? 'да' : 'нет') + ', нативный HTTP: ' + (nativeHttp() ? 'да' : 'нет')];
+    function show() { out.textContent = lines.join('\n'); }
+    show();
+    if (url) {
+      lines.push('Проверяю…'); show();
+      fetch(url, { method: 'GET' }).then(function (r) { return r.text().then(function (t) { lines.push('fetch GET: ' + r.status + ' ' + t.slice(0, 120)); }); },
+        function (e) { lines.push('fetch GET: ошибка ' + (e && e.message || e)); })
+        .then(function () {
+          var N = nativeHttp(); if (!N) return;
+          return N.request({ url: url, method: 'GET' }).then(function (res) { lines.push('нативный GET: ' + res.status + ' ' + String(typeof res.data === 'string' ? res.data : JSON.stringify(res.data)).slice(0, 120)); },
+            function (e) { lines.push('нативный GET: ошибка ' + (e && (e.message || e.errorMessage) || e)); });
+        })
+        .then(function () { lines.push('Готово.'); show(); });
+    }
+    openModal('Проверка связи', [out]);
   }
   /* ---------- локальный «ассистент» без сервера: работает в APK, когда нет ни Claude, ни SORA_API ---------- */
   var LOCAL_AI = (function () {
