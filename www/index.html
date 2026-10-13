@@ -3537,7 +3537,38 @@ main, footer { position: relative; z-index: 2; }
     for (;;) { try { localStorage.setItem(GEN_KEY, JSON.stringify(all)); break; } catch (e) { var o = ids.shift(); if (!o || o === id) break; delete all[o]; } }
   }
   function mediaSrc(vs) { var m = findImage(vs); return m ? m.src : vs; }
-  function realImages() { return !!window.SORA_API && !window.claude; }
+  /* фото: по умолчанию Pollinations (Flux, без ключа). window.SORA_IMG = 'gemini' включает Worker, 'off' возвращает заготовленные фото */
+  function imgProvider() { var v = window.SORA_IMG; return v === 'gemini' || v === 'off' ? v : 'pollinations'; }
+  function realImages() { var v = imgProvider(); return !window.claude && v !== 'off' && (v !== 'gemini' || !!window.SORA_API); }
+  var POLL_SIZE = { '9:16': [720, 1280], '16:9': [1280, 720], '1:1': [1024, 1024], '3:4': [768, 1024], '4:3': [1024, 768] };
+  function blobToDataUrl(b) { return new Promise(function (ok, no) { var r = new FileReader(); r.onload = function () { ok(r.result); }; r.onerror = function () { no(r.error); }; r.readAsDataURL(b); }); }
+  function pollOnce(url, sig) {
+    var N = nativeHttp();
+    if (N) {
+      return N.request({ url: url, method: 'GET', responseType: 'blob', readTimeout: 100000, connectTimeout: 20000 }).then(function (res) {
+        if (res.status < 200 || res.status >= 300) throw { code: res.status === 429 ? 'rate_limited' : 'gemini_fail', status: res.status, detail: 'Pollinations: ' + res.status };
+        var h = res.headers || {}, ct = h['Content-Type'] || h['content-type'] || 'image/jpeg';
+        if (!/^image\//i.test(ct)) ct = 'image/jpeg';
+        return 'data:' + ct.split(';')[0] + ';base64,' + res.data;
+      });
+    }
+    return fetch(url, { signal: sig }).then(function (r) {
+      if (!r.ok) throw { code: r.status === 429 ? 'rate_limited' : 'gemini_fail', status: r.status, detail: 'Pollinations: ' + r.status };
+      return r.blob();
+    }, function (err) { throw { code: 'gemini_net', detail: String(err && err.message || err) }; }).then(blobToDataUrl);
+  }
+  function pollImage(prompt, ratio, sig) {
+    var sz = POLL_SIZE[ratio] || POLL_SIZE['9:16'], seed = Math.floor(Math.random() * 1e9);
+    var clean = String(prompt).replace(/^\s*(?:пожалуйста[,\s]+)?(?:сгенерируй|сгенерировать|создай|создать|нарисуй|нарисовать|сделай|сделать|generate|create|draw|make)\s+(?:мне\s+|для\s+меня\s+)?(?:(?:фото(?:графию)?|картинку|изображение|рисунок|image|picture|photo)\s+)?/i, '').trim() || String(prompt);
+    var url = 'https://image.pollinations.ai/prompt/' + encodeURIComponent(clean.slice(0, 700)) + '?model=flux&width=' + sz[0] + '&height=' + sz[1] + '&nologo=true&private=true&seed=' + seed;
+    var pause = function (ms) { return new Promise(function (ok) { setTimeout(ok, ms); }); };
+    var req = pollOnce(url, sig).catch(function (e) {
+      if (e && e.code === 'rate_limited' && !(sig && sig.aborted)) return pause(16000).then(function () { return pollOnce(url, sig); }); /* бесплатный лимит: 1 запрос в 15 секунд */
+      throw e;
+    }).then(shrinkImage).then(function (r) { var id = 'gen:' + Date.now().toString(36); saveGenImg(id, r.d, r.w, r.h); return { src: r.d, key: id, w: r.w, h: r.h }; });
+    var wait = new Promise(function (_, no) { setTimeout(function () { no({ code: 'gemini_net', detail: 'долго нет ответа' }); }, 110000); });
+    return Promise.race([req, wait]);
+  }
   function shrinkImage(dataUrl) {
     return new Promise(function (ok, no) {
       var i = new Image();
@@ -3552,6 +3583,7 @@ main, footer { position: relative; z-index: 2; }
     });
   }
   function imageSample(prompt, ratio, sig) {
+    if (imgProvider() !== 'gemini') return pollImage(prompt, ratio, sig);
     var url = window.SORA_API, body = { image: { prompt: prompt, ratio: ratio || '9:16' } };
     var wait = new Promise(function (_, no) { setTimeout(function () { no({ code: 'gemini_net', detail: 'долго нет ответа' }); }, 110000); });
     var req = fetch(url, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body), signal: sig })
@@ -3576,7 +3608,7 @@ main, footer { position: relative; z-index: 2; }
   }
   function imageErrText(e) {
     var c = e && e.code, d = e && e.detail ? ' (' + e.detail + ')' : '';
-    if (c === 'rate_limited') return 'Лимит фото на сегодня исчерпан или модель занята. Баллы вернулись, попробуй позже.';
+    if (c === 'rate_limited') return 'Сервис фото просит подождать: бесплатно примерно 1 фото в 15 секунд. Попробуй чуть позже.' + d + ' Баллы вернулись.';;
     if (c === 'gemini_net') return 'Нет связи с сервером генерации. Баллы вернулись.' + d;
     return 'Не удалось создать фото.' + d + ' Баллы вернулись.';
   }
