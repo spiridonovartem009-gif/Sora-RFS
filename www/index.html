@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="theme-color" content="#060B22">
+<meta name="theme-color" content="#03140A">
 <script src="config.js"></script>
-<title>Sora RFS</title>
+<title>Helix.ai</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap">
@@ -139,7 +139,7 @@ header .col { position: relative; }
 .apw button { position: absolute; right: 6px; top: 50%; transform: translateY(-50%); border: 0; background: none; color: var(--muted); font-size: 12px; padding: 6px 8px; border-radius: 8px; }
 .arem { flex-direction: row !important; align-items: center; gap: 8px !important; cursor: pointer; }
 .aerr { min-height: 18px; margin: 0; font-size: 13px; color: var(--err); }
-#asub { height: 46px; border: 0; border-radius: 999px; background: linear-gradient(160deg, #FFE28E, #E8B338); color: var(--accent-ink); font-weight: 600; font-size: 15px; box-shadow: inset 0 1px 0 rgba(255, 255, 255, .65), 0 2px 8px rgba(0, 0, 0, .4); }
+#asub { height: 46px; border: 0; border-radius: 999px; background: linear-gradient(160deg, var(--ac1), var(--ac2)); color: var(--accent-ink); font-weight: 600; font-size: 15px; box-shadow: inset 0 1px 0 rgba(255, 255, 255, .65), 0 2px 8px rgba(0, 0, 0, .4); }
 #asub:disabled { opacity: .5; }
 .anote { margin: 0; font-size: 11.5px; line-height: 1.45; color: var(--muted); text-align: center; }
 :root[data-theme="light"] .auth { background-image: radial-gradient(70% 55% at 85% -5%, rgba(120, 160, 255, .45), transparent 70%), radial-gradient(60% 50% at 5% 105%, rgba(160, 190, 255, .5), transparent 70%), linear-gradient(180deg, #F2F6FF 0%, #E3EBFF 100%); }
@@ -291,7 +291,7 @@ footer { flex: none; padding-block: 10px 12px; }
 #input::placeholder { color: var(--muted); }
 #send {
   flex: none; width: 40px; height: 40px; border: 0; border-radius: 50%;
-  background: linear-gradient(160deg, #FFE28E, #E8B338);
+  background: linear-gradient(160deg, var(--ac1), var(--ac2));
   color: var(--accent-ink);
   display: grid; place-items: center;
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, .65), 0 2px 8px rgba(0, 0, 0, .4);
@@ -306,7 +306,7 @@ footer { flex: none; padding-block: 10px 12px; }
 .seg button:hover { color: var(--ink); }
 .seg button[aria-checked="true"], .seg button[aria-selected="true"] { background: rgba(255, 255, 255, .16); color: var(--ink); box-shadow: inset 0 1px 0 rgba(255, 255, 255, .3); }
 .seg .mode small { margin-left: 5px; font-family: var(--font-mono); font-size: 11px; opacity: .75; }
-.seg .mode[data-m="pro"][aria-checked="true"] { background: linear-gradient(160deg, #FFE28E, #E8B338); color: var(--accent-ink); }
+.seg .mode[data-m="pro"][aria-checked="true"] { background: linear-gradient(160deg, var(--ac1), var(--ac2)); color: var(--accent-ink); }
 .tabs .seg { width: 100%; }
 .tabs .seg button { flex: 1; padding-block: 7px; font-size: 14px; }
 .chatbtns { display: flex; gap: 6px; }
@@ -361,7 +361,7 @@ footer { flex: none; padding-block: 10px 12px; }
 #gprompt { width: 100%; resize: none; min-height: 50px; max-height: 100px; border: 1px solid var(--line); border-radius: 14px; background: rgba(4, 8, 30, .35); padding: 10px 12px; font-size: 16px; line-height: 22px; outline: none; }
 #gprompt:focus { border-color: rgba(244, 201, 93, .6); }
 #gprompt::placeholder { color: var(--muted); }
-#gsend { height: 44px; border: 0; border-radius: 999px; background: linear-gradient(160deg, #FFE28E, #E8B338); color: var(--accent-ink); font-weight: 600; box-shadow: inset 0 1px 0 rgba(255, 255, 255, .65), 0 2px 8px rgba(0, 0, 0, .4); }
+#gsend { height: 44px; border: 0; border-radius: 999px; background: linear-gradient(160deg, var(--ac1), var(--ac2)); color: var(--accent-ink); font-weight: 600; box-shadow: inset 0 1px 0 rgba(255, 255, 255, .65), 0 2px 8px rgba(0, 0, 0, .4); }
 #gsend:disabled { opacity: .4; cursor: default; }
 .fine.bad { color: var(--err); }
 
@@ -381,7 +381,7 @@ footer { flex: none; padding-block: 10px 12px; }
 .pav { position: relative; }
 .pav .av { padding: 3px; }
 .pav .avi { width: 96px; height: 96px; }
-.pcam { position: absolute; right: -2px; bottom: -2px; width: 32px; height: 32px; border-radius: 50%; border: 2px solid #1A2470; background: linear-gradient(160deg, #FFE28E, #E8B338); color: var(--accent-ink); display: grid; place-items: center; padding: 0; }
+.pcam { position: absolute; right: -2px; bottom: -2px; width: 32px; height: 32px; border-radius: 50%; border: 2px solid #1A2470; background: linear-gradient(160deg, var(--ac1), var(--ac2)); color: var(--accent-ink); display: grid; place-items: center; padding: 0; }
 .prow { display: flex; align-items: center; justify-content: center; gap: 8px; max-width: 100%; }
 .pname { width: 190px; max-width: 100%; border: 0; border-bottom: 1px dashed transparent; background: none; color: var(--ink); font: inherit; font-size: 21px; font-weight: 700; text-align: center; padding: 2px 4px; outline: none; }
 .pname:hover, .pname:focus { border-bottom-color: var(--line); }
@@ -478,7 +478,7 @@ footer { flex: none; padding-block: 10px 12px; }
 .lbnav.l { left: 8px; } .lbnav.r { right: 8px; }
 /* Тост */
 .toast { position: fixed; left: 50%; bottom: 96px; transform: translateX(-50%); z-index: 56; display: flex; align-items: center; gap: 10px; max-width: calc(100vw - 32px); padding: 10px 12px 10px 16px; border-radius: 999px; background: rgba(20, 26, 66, .96); border: 1px solid rgba(244, 201, 93, .5); box-shadow: 0 10px 30px rgba(0, 0, 0, .5); font-size: 14px; animation: popin .2s ease-out; }
-.toast button { border: 0; border-radius: 999px; padding: 6px 12px; background: linear-gradient(160deg, #FFE28E, #E8B338); color: var(--accent-ink); font-weight: 600; font-size: 13px; }
+.toast button { border: 0; border-radius: 999px; padding: 6px 12px; background: linear-gradient(160deg, var(--ac1), var(--ac2)); color: var(--accent-ink); font-weight: 600; font-size: 13px; }
 :root[data-theme="light"] .toast { background: #fff; }
 /* Награда */
 .rwtop { display: flex; flex-direction: column; align-items: center; gap: 2px; margin-bottom: 12px; text-align: center; }
@@ -508,14 +508,14 @@ footer { flex: none; padding-block: 10px 12px; }
 .gtop { display: flex; align-items: center; gap: 10px; padding: 10px 12px; }
 .gstat { font-family: var(--font-mono); font-size: 14px; white-space: nowrap; color: #E9EEFB; }
 .gprog { position: relative; flex: 1; min-width: 0; height: 22px; border-radius: 999px; background: rgba(255, 255, 255, .1); overflow: hidden; }
-.gprog i { position: absolute; left: 0; top: 0; bottom: 0; width: 0; background: linear-gradient(90deg, #E8B338, #FFE28E); opacity: .55; transition: width .5s; }
+.gprog i { position: absolute; left: 0; top: 0; bottom: 0; width: 0; background: linear-gradient(90deg, var(--ac2), var(--ac1)); opacity: .55; transition: width .5s; }
 .gprog span { position: absolute; inset: 0; display: grid; place-items: center; font-size: 11.5px; color: #fff; font-family: var(--font-mono); white-space: nowrap; }
 .game .ghost { color: #E9EEFB; }
 #gcv { flex: 1; min-height: 0; width: 100%; display: block; }
 .gover { position: absolute; left: 50%; top: 46%; transform: translate(-50%, -50%); width: min(300px, calc(100vw - 40px)); padding: 20px; border-radius: 22px; text-align: center; background: rgba(20, 26, 66, .96); border: 1px solid rgba(244, 201, 93, .5); box-shadow: 0 16px 44px rgba(0, 0, 0, .6); }
 .gover b { font-size: 20px; }
 .gover p { margin: 6px 0 4px; font-size: 14px; color: #9AA6D6; }
-.gdone { background: linear-gradient(160deg, #FFE28E, #E8B338) !important; color: var(--accent-ink) !important; border: 0 !important; font-weight: 600; }
+.gdone { background: linear-gradient(160deg, var(--ac1), var(--ac2)) !important; color: var(--accent-ink) !important; border: 0 !important; font-weight: 600; }
 
 /* Окна */
 .modal { position: fixed; inset: 0; z-index: 50; display: grid; place-items: center; padding: 16px; background: rgba(2, 5, 20, .62); -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px); }
@@ -542,7 +542,7 @@ footer { flex: none; padding-block: 10px 12px; }
 .mrow span:first-child { color: var(--muted); }
 .mrow .v { font-family: var(--font-mono); font-variant-numeric: tabular-nums; }
 .mname { width: 150px; border: 1px solid var(--line); background: rgba(4, 8, 30, .35); border-radius: 10px; padding: 6px 10px; font-size: 16px; outline: none; text-align: right; }
-.mbtn { width: 100%; margin-top: 10px; height: 44px; border: 0; border-radius: 999px; background: linear-gradient(160deg, #FFE28E, #E8B338); color: var(--accent-ink); font-weight: 600; }
+.mbtn { width: 100%; margin-top: 10px; height: 44px; border: 0; border-radius: 999px; background: linear-gradient(160deg, var(--ac1), var(--ac2)); color: var(--accent-ink); font-weight: 600; }
 .mbtn.alt { background: rgba(255, 255, 255, .1); color: var(--ink); border: 1px solid var(--line); font-weight: 500; }
 .mbtn:disabled { opacity: .5; cursor: default; }
 .pack { display: flex; justify-content: space-between; align-items: center; width: 100%; margin-top: 8px; padding: 12px 16px; border-radius: 16px; border: 1px solid var(--line); background: rgba(255, 255, 255, .07); font-size: 14px; text-align: left; }
@@ -587,8 +587,77 @@ footer { flex: none; padding-block: 10px 12px; }
   .thinking .eye { animation: none; }
   .eye, .gen .bar i { transition: none; }
 }
+
+/* ===== Helix.ai: редизайн ===== */
+:root { --ac1: #7CF0A6; --ac2: #1FBF62; --accent: #5BE08A; --accent-ink: #03170B; --ink: #EAF8EF; --muted: #9CC7AB; --line: rgba(190, 255, 215, .18); --user: rgba(60, 220, 130, .20); --bg: #03140A; --veil: rgba(2, 14, 7, .42); --pcard: rgba(3, 20, 10, .55); }
+:root[data-mode="slim"] { --ac1: #E4FF7A; --ac2: #9BD81E; --accent: #C4EE4A; --ink: #F3FADF; --muted: #B7CC8A; --line: rgba(225, 255, 140, .2); --user: rgba(180, 230, 50, .2); --bg: #0A1405; --veil: rgba(8, 16, 2, .42); --pcard: rgba(14, 22, 4, .55); }
+:root[data-mode="pro"] { --ac1: #FFE28E; --ac2: #E8B338; --accent: #F4C95D; --accent-ink: #1B1405; --ink: #FBF3DC; --muted: #CDB98A; --line: rgba(255, 225, 150, .2); --user: rgba(240, 180, 50, .2); --bg: #140E03; --veil: rgba(20, 12, 2, .42); --pcard: rgba(26, 17, 3, .55); }
+:root[data-theme="light"] { --ac1: #6FE59A; --ac2: #1FA855; --accent: #0E7A3A; --ink: #0B2A17; --muted: #3E6A4D; --line: rgba(10, 60, 30, .2); --user: rgba(30, 170, 90, .16); --bg: #E4F6E9; --veil: rgba(255, 255, 255, .28); --pcard: rgba(255, 255, 255, .7); }
+:root[data-theme="light"][data-mode="slim"] { --ac1: #D8F566; --ac2: #86BC12; --accent: #4F7A00; --ink: #1C2A05; --muted: #566B22; --line: rgba(60, 80, 0, .2); --user: rgba(150, 200, 30, .2); --bg: #F0F8DA; }
+:root[data-theme="light"][data-mode="pro"] { --ac1: #FFE28E; --ac2: #E0A82A; --accent: #8A5A00; --ink: #2A1C04; --muted: #7A5E22; --line: rgba(90, 60, 0, .22); --user: rgba(230, 170, 40, .2); --bg: #FBF1D4; }
+html, body { background-color: var(--bg); }
+body { background-image: none !important; }
+#sky { display: none; }
+#bgimg { position: fixed; inset: 0; z-index: 0; pointer-events: none; background: var(--bg) center / cover no-repeat; transition: opacity .5s ease; }
+#bgimg::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, var(--veil), transparent 35%, var(--veil)); }
+:root[data-mode="fat"] #bgimg, :root:not([data-mode]) #bgimg { background-image: url("media/h-fat-dark.webp"); }
+:root[data-mode="slim"] #bgimg { background-image: url("media/h-slim-dark.webp"); }
+:root[data-mode="pro"] #bgimg { background-image: url("media/h-pro-dark.webp"); }
+:root[data-theme="light"][data-mode="fat"] #bgimg, :root[data-theme="light"]:not([data-mode]) #bgimg { background-image: url("media/h-fat-light.webp"); }
+:root[data-theme="light"][data-mode="slim"] #bgimg { background-image: url("media/h-slim-light.webp"); }
+:root[data-theme="light"][data-mode="pro"] #bgimg { background-image: url("media/h-pro-light.webp"); }
+header, main, footer { position: relative; z-index: 2; }
+.wm-cloud { height: 40px; aspect-ratio: auto; }
+.wm-cloud img { width: auto; height: 100%; }
+.wm-text { color: var(--ink); font-weight: 700; letter-spacing: .01em; }
+:root[data-theme="light"] .wm-text { color: var(--ink); }
+.modepop { background: rgba(4, 22, 12, .9); }
+:root[data-mode="slim"] .modepop { background: rgba(14, 22, 4, .9); }
+:root[data-mode="pro"] .modepop { background: rgba(26, 17, 3, .9); }
+:root[data-theme="light"] .modepop { background: rgba(255, 255, 255, .94); }
+.alogo { margin-bottom: 6px; }
+.alogo-img { width: 170px; max-width: 60%; height: auto; display: block; filter: drop-shadow(0 6px 22px rgba(60, 230, 130, .35)); }
+.auth { background-color: #03140A; background-image: url("media/h-fat-dark.webp"); background-size: cover; background-position: center; }
+:root[data-theme="light"] .auth { background-image: url("media/h-fat-light.webp"); }
+.acard { background: rgba(2, 16, 8, .62); }
+:root[data-theme="light"] .acard { background: rgba(255, 255, 255, .78); }
+.mascot img { filter: drop-shadow(0 8px 24px rgba(60, 230, 130, .35)); }
+.avi { background: linear-gradient(150deg, #1FBF62, #0A5A2C); }
+.pcam { border-color: #0A3A1C; }
+/* подписка: фон карточки профиля */
+.phero.sub { position: relative; margin: -4px -4px 4px; padding: 22px 12px 16px; border-radius: 20px; overflow: hidden; background: #0B3A1C url("media/h-sub.webp") center / cover no-repeat; --ink: #FFFFFF; --muted: rgba(255, 255, 255, .82); --line: rgba(255, 255, 255, .3); box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .22), 0 10px 28px rgba(10, 80, 40, .35); text-shadow: 0 1px 6px rgba(0, 40, 15, .5); }
+.phero.sub .pname, .phero.sub .pplan, .phero.sub .pplan b { color: #fff; }
+/* заставка */
+.splash { background: #03140A; }
+.splash .hs { position: relative; display: flex; flex-direction: column; align-items: center; gap: 16px; }
+.hs-glow { position: absolute; width: 120vmin; height: 120vmin; max-width: 760px; max-height: 760px; border-radius: 50%; background: radial-gradient(closest-side, rgba(40, 220, 120, .38), rgba(20, 120, 60, .12) 55%, transparent 75%); opacity: 0; transform: scale(.6); }
+.hs-logo { position: relative; width: min(56vw, 260px); height: auto; opacity: 0; transform: translateY(14px) scale(.86); filter: drop-shadow(0 0 0 rgba(60, 240, 140, 0)); }
+.hs-sub { position: relative; font-family: var(--font-mono); font-size: 13px; letter-spacing: .32em; text-transform: uppercase; color: #8FE8B2; opacity: 0; }
+.hs-bar { position: relative; width: 140px; height: 3px; border-radius: 3px; background: rgba(120, 255, 180, .16); overflow: hidden; opacity: 0; }
+.hs-bar i { display: block; height: 100%; width: 0; background: linear-gradient(90deg, #1FBF62, #7CF0A6); }
+.splash.go .hs-glow { animation: hsGlow 2.4s ease-out forwards; }
+.splash.go .hs-logo { animation: hsLogo 1.1s cubic-bezier(.2, .8, .2, 1) .15s forwards, hsPulse 2s ease-in-out 1.25s infinite; }
+.splash.go .hs-sub { animation: hsFade .8s ease .8s forwards; }
+.splash.go .hs-bar { animation: hsFade .5s ease .9s forwards; }
+.splash.go .hs-bar i { animation: hsFill 1.6s ease-in-out .9s forwards; }
+@keyframes hsGlow { to { opacity: 1; transform: scale(1); } }
+@keyframes hsLogo { to { opacity: 1; transform: none; } }
+@keyframes hsPulse { 0%, 100% { filter: drop-shadow(0 0 6px rgba(60, 240, 140, .25)); } 50% { filter: drop-shadow(0 0 22px rgba(60, 240, 140, .6)); } }
+@keyframes hsFade { to { opacity: 1; } }
+@keyframes hsFill { to { width: 100%; } }
+.splash .skip { background: rgba(3, 30, 14, .6); border-color: rgba(150, 255, 200, .3); color: #E9FFF1; }
+
+.modal { background: rgba(0, 10, 4, .66); }
+.mcard { background: linear-gradient(135deg, rgba(10, 52, 28, .94), rgba(3, 22, 11, .96)); }
+:root[data-mode="slim"] .mcard { background: linear-gradient(135deg, rgba(40, 56, 12, .94), rgba(14, 22, 4, .96)); }
+:root[data-mode="pro"] .mcard { background: linear-gradient(135deg, rgba(70, 48, 10, .94), rgba(26, 17, 3, .96)); }
+:root[data-theme="light"] .mcard { background: linear-gradient(135deg, #FFFFFF, #E9F8EE); }
+:root[data-theme="light"][data-mode="slim"] .mcard { background: linear-gradient(135deg, #FFFFFF, #F3F9DF); }
+:root[data-theme="light"][data-mode="pro"] .mcard { background: linear-gradient(135deg, #FFFFFF, #FBF1D4); }
+:root[data-theme="light"] .modal { background: rgba(10, 50, 25, .3); }
 </style>
 
+<div id="bgimg" aria-hidden="true"></div>
 <div id="sky" aria-hidden="true">
   <div class="neb n1"></div>
   <div class="neb n2"></div>
@@ -600,7 +669,7 @@ footer { flex: none; padding-block: 10px 12px; }
 
 <header>
   <div class="col">
-    <h1 class="brand"><button id="modebtn" class="modebtn" type="button" aria-haspopup="true" aria-expanded="false" aria-controls="modepop" aria-label="Режим Slim. Сменить режим"><span class="wm"><span class="wm-cloud"><img alt="" src="data:image/webp;base64,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"><span class="eye l"><i class="lid"></i></span><span class="eye r"><i class="lid"></i></span></span><span class="wm-stack"><span class="wm-text" aria-hidden="true">RFS 2</span><span class="wm-mode" aria-hidden="true"><span id="wmmode">Slim</span><svg width="9" height="9" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3.5 5 6.5 8 3.5"/></svg></span></span></span></button></h1>
+    <h1 class="brand"><button id="modebtn" class="modebtn" type="button" aria-haspopup="true" aria-expanded="false" aria-controls="modepop" aria-label="Режим Slim. Сменить режим"><span class="wm"><span class="wm-cloud"><img alt="" src="media/h-logo.webp"></span><span class="wm-stack"><span class="wm-text" aria-hidden="true">Helix.ai</span><span class="wm-mode" aria-hidden="true"><span id="wmmode">Slim</span><svg width="9" height="9" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3.5 5 6.5 8 3.5"/></svg></span></span></span></button></h1>
     <div class="hbtns">
       <button id="hpts" class="ghost chip" hidden type="button" aria-label="Баллы на видео. Докупить"><svg width="13" height="13" viewBox="0 0 14 14" fill="currentColor" aria-hidden="true"><path d="M8 .8 2.6 8h3.4l-.8 5.2L11.4 6H8z"/></svg><span id="hptsv">60</span></button>
       <button id="prof" class="avbtn" type="button" aria-label="Профиль" aria-haspopup="dialog"></button>
@@ -630,11 +699,11 @@ footer { flex: none; padding-block: 10px 12px; }
   <div class="col">
     <div id="banner" class="notice" hidden>Ответы работают, когда страница открыта в Claude. Здесь связи с ассистентом нет.</div>
     <div id="greeting" class="msg bot sys">
-      <div class="who"><img id="greet-logo" alt="" width="26" height="26" src="data:image/jpeg;base64,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"></div>
-      <div class="main"><div class="body"><p>Привет! Я – Sora RFS. Помогу с разными задачами, задай мне любой вопрос, и я тебе отвечу.</p></div></div>
+      <div class="who"><img id="greet-logo" alt="" width="26" height="26" src="media/h-logo.webp"></div>
+      <div class="main"><div class="body"><p>Привет! Я – Helix.ai. Помогу с разными задачами, задай мне любой вопрос, и я тебе отвечу.</p></div></div>
     </div>
     <div id="hero" class="hero" aria-hidden="true">
-      <div class="mascot"><img alt="" src="data:image/webp;base64,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"><span class="eye l"><i class="lid"></i></span><span class="eye r"><i class="lid"></i></span></div>
+      <div class="mascot"><img alt="" src="media/h-logo.webp"></div>
     </div>
     <div id="msgs"></div>
   </div>
@@ -722,14 +791,14 @@ footer { flex: none; padding-block: 10px 12px; }
       <textarea id="gprompt" rows="2" aria-label="Промт" placeholder="Промт: что хочешь сгенерировать"></textarea>
       <button id="gsend" type="button">Сгенерировать</button>
     </section>
-    <p id="fine" class="fine">Sora RFS может ошибаться. Важное лучше проверять.</p>
+    <p id="fine" class="fine">Helix.ai может ошибаться. Важное лучше проверять.</p>
   </div>
 </footer>
 
 <div id="auth" class="auth" role="dialog" aria-label="Вход">
   <form id="aform" class="acard" autocomplete="on">
     <div class="seg alang" role="radiogroup" aria-label="Language"><button type="button" role="radio" data-lang="ru" aria-checked="true">RU</button><button type="button" role="radio" data-lang="en" aria-checked="false">EN</button></div>
-    <div class="alogo"><span class="wm"><span class="wm-cloud"><img alt="" src="data:image/webp;base64,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"><span class="eye l"><i class="lid"></i></span><span class="eye r"><i class="lid"></i></span></span><span class="wm-text" aria-hidden="true">RFS 2</span></span></div>
+    <div class="alogo"><img class="alogo-img" alt="Helix.ai" src="media/h-logo-text.webp"></div>
     <div class="seg" role="tablist" aria-label="Вход или регистрация">
       <button type="button" role="tab" id="atab-in" aria-selected="true">Вход</button>
       <button type="button" role="tab" id="atab-up" aria-selected="false">Регистрация</button>
@@ -743,7 +812,7 @@ footer { flex: none; padding-block: 10px 12px; }
   </form>
 </div>
 <div id="splash" class="splash" hidden role="dialog" aria-label="Заставка">
-  <video id="splashv" muted playsinline preload="auto"></video>
+  <div class="hs"><div class="hs-glow"></div><img class="hs-logo" alt="Helix.ai" src="media/h-logo-text.webp"><div class="hs-sub">ИИ-ассистент</div><div class="hs-bar"><i></i></div></div>
   <button id="splashskip" class="skip" type="button">Пропустить</button>
 </div>
 
@@ -754,17 +823,17 @@ footer { flex: none; padding-block: 10px 12px; }
   var LANG = 'ru';
   function LOC() { return LANG === 'en' ? 'en-GB' : 'ru-RU'; }
   var MAX_TURNS = 30;
-  var INSTR = 'Ты Sora RFS, ИИ-ассистент в чат-приложении. Отвечай на языке последнего сообщения пользователя. ' +
+  var INSTR = 'Ты Helix.ai, ИИ-ассистент в чат-приложении. Отвечай на языке последнего сообщения пользователя. ' +
     'Пиши ясно и по делу: короткие абзацы, списки там, где они помогают, код в блоках с тремя обратными кавычками. ' +
     'Не используй таблицы и HTML. Ты умеешь только писать текст и не создаёшь изображения и видео. ' +
-    'Если об этом просят, коротко скажи, что в Sora RFS такой функции нет, и предложи текстовое описание или подробный промпт для другого сервиса. ' +
+    'Если об этом просят, коротко скажи, что в Helix.ai такой функции нет, и предложи текстовое описание или подробный промпт для другого сервиса. ' +
     'Если спросят, на какой модели ты работаешь, скажи, что ассистент работает на Claude от Anthropic. ' +
     'Ниже переписка. Ответь на последнее сообщение пользователя.';
 
   var MODE_TXT = {
-    fat: ' Ты облегчённая версия Sora RFS Fat. Отвечай очень коротко (1–3 предложения), простыми словами и без глубокого анализа. В сложных вопросах (код, математика, многошаговые задачи) отвечай поверхностно и неуверенно, можешь путаться и упускать детали, но без выдуманных громких фактов.',
-    slim: ' Ты версия Sora RFS Slim: умная и сбалансированная. Отвечай ясно, точно и по существу, уверенно решай сложные задачи.',
-    pro: ' Ты флагманская версия Sora RFS Pro. Отвечай максимально точно и глубоко: продумывай решение, учитывай нюансы и крайние случаи, при необходимости разбирай по шагам и проверяй результат перед ответом.'
+    fat: ' Ты облегчённая версия Helix.ai Fat. Отвечай очень коротко (1–3 предложения), простыми словами и без глубокого анализа. В сложных вопросах (код, математика, многошаговые задачи) отвечай поверхностно и неуверенно, можешь путаться и упускать детали, но без выдуманных громких фактов.',
+    slim: ' Ты версия Helix.ai Slim: умная и сбалансированная. Отвечай ясно, точно и по существу, уверенно решай сложные задачи.',
+    pro: ' Ты флагманская версия Helix.ai Pro. Отвечай максимально точно и глубоко: продумывай решение, учитывай нюансы и крайние случаи, при необходимости разбирай по шагам и проверяй результат перед ответом.'
   };
   var $ = function (id) { return document.getElementById(id); };
   var logEl = $('log'), msgsEl = $('msgs'), form = $('form'), input = $('input'),
@@ -793,9 +862,9 @@ footer { flex: none; padding-block: 10px 12px; }
     ultra: { n: 'RFS 2 Ultra', c: { 10: 20, 15: 35, 20: 50, 30: 70 }, tag: 'Флагман', lv: 4, d: 'Максимум качества и самые длинные ролики: до 30 секунд. Самая дорогая, зато лучшая.' }
   };
   var IMODELS = {
-    i1: { n: 'Sora RFS Image 1.0', cost: 4, tag: 'Базовая', lv: 1, d: 'Быстрые и недорогие кадры для идей и черновиков.' },
-    i2: { n: 'Sora RFS Image 2.0', cost: 8, tag: 'Основная', lv: 2, d: 'Чёткие кадры с лучше проработанным светом и деталями.' },
-    i2p: { n: 'Sora RFS Image 2.0 Pro', cost: 12, tag: 'Максимум', lv: 3, d: 'Высшая детализация и реалистичность. Для финальных работ.' }
+    i1: { n: 'Helix.ai Image 1.0', cost: 4, tag: 'Базовая', lv: 1, d: 'Быстрые и недорогие кадры для идей и черновиков.' },
+    i2: { n: 'Helix.ai Image 2.0', cost: 8, tag: 'Основная', lv: 2, d: 'Чёткие кадры с лучше проработанным светом и деталями.' },
+    i2p: { n: 'Helix.ai Image 2.0 Pro', cost: 12, tag: 'Максимум', lv: 3, d: 'Высшая детализация и реалистичность. Для финальных работ.' }
   };
   function tariff() {
     var p = prof();
@@ -837,7 +906,7 @@ footer { flex: none; padding-block: 10px 12px; }
   function flashHint(text) {
     var f = $('fine'); f.textContent = text; f.classList.add('bad');
     clearTimeout(hintT);
-    hintT = setTimeout(function () { f.textContent = 'Sora RFS может ошибаться. Важное лучше проверять.'; f.classList.remove('bad'); }, 4000);
+    hintT = setTimeout(function () { f.textContent = 'Helix.ai может ошибаться. Важное лучше проверять.'; f.classList.remove('bad'); }, 4000);
   }
   function renderPts() {
     pts();
@@ -1023,7 +1092,7 @@ footer { flex: none; padding-block: 10px 12px; }
     { id: 'cat', n: 'Международный день кошек', p: 20, f: [8, 8], t: [8, 8] },
     { id: 'buba', n: 'День Бубы', p: 40, f: [8, 17], t: [8, 17] },
     { id: 'sep1', n: 'День знаний', p: 10, f: [9, 1], t: [9, 1] },
-    { id: 'bd', n: 'День рождения Sora RFS', p: 25, f: [10, 10], t: [10, 12] },
+    { id: 'bd', n: 'День рождения Helix.ai', p: 25, f: [10, 10], t: [10, 12] },
     { id: 'hal', n: 'Хэллоуин', p: 25, f: [10, 29], t: [10, 31] },
     { id: 'wsale', n: 'Зимняя распродажа', p: 15, f: [12, 1], t: [12, 14] },
     { id: 'ssale', n: 'Весенняя распродажа', p: 15, f: [3, 1], t: [3, 14] },
@@ -1219,32 +1288,26 @@ footer { flex: none; padding-block: 10px 12px; }
   }
   function splashOff() { try { return localStorage.getItem(NOSPLASH_KEY) === '1'; } catch (e) { return false; } }
   function setSplashOff(v) { try { if (v) localStorage.setItem(NOSPLASH_KEY, '1'); else localStorage.removeItem(NOSPLASH_KEY); } catch (e) {} }
-  var SPLASH_SRC = "media/splash.mp4";
-  /* заставка: по умолчанию один раз за сессию, отключается в профиле */
+  /* заставка Helix.ai: анимация на CSS, без видео. По умолчанию один раз за сессию, отключается в профиле */
   function runSplash(force) {
-    if (!SPLASH_SRC) return;
     if (!force) {
       if (splashOff() || reduce) return;
       try { if (sessionStorage.getItem('sora-rfs-splash')) return; } catch (e) {}
     }
-    var sp = $('splash'), v = $('splashv'), done = false, guard = 0;
+    var sp = $('splash'), done = false, guard = 0;
     function close() {
       if (done) return; done = true; clearTimeout(guard);
       try { sessionStorage.setItem('sora-rfs-splash', '1'); } catch (e) {}
       document.removeEventListener('keydown', onKey);
       sp.classList.add('out');
-      setTimeout(function () { sp.hidden = true; sp.classList.remove('out'); v.removeAttribute('src'); v.load(); }, 500);
+      setTimeout(function () { sp.hidden = true; sp.classList.remove('out', 'go'); }, 500);
     }
     function onKey(e) { if (e.key === 'Escape') close(); }
     document.addEventListener('keydown', onKey);
-    sp.classList.remove('out'); sp.hidden = false;
-    v.onended = close;
-    v.onerror = close;
-    v.onplaying = function () { clearTimeout(guard); guard = setTimeout(close, 9000); };
+    sp.classList.remove('out', 'go'); sp.hidden = false;
+    void sp.offsetWidth; sp.classList.add('go');
     $('splashskip').onclick = close;
-    guard = setTimeout(close, 5000); /* если видео не запустилось, заставка тихо убирается */
-    v.muted = true; v.src = SPLASH_SRC;
-    var pr = v.play(); if (pr && pr.catch) pr.catch(close);
+    guard = setTimeout(close, 2800);
   }
   var TSTYLE = {
     lite: { badge: '' },
@@ -1331,7 +1394,7 @@ footer { flex: none; padding-block: 10px 12px; }
     var seen = !document.hidden && !gameOpen && (tab === 'chat' || tab === 'gen');
     if (seen) return;
     toast(text, 'Смотреть', function () { closeGame(); closeLb(); closeModal(); setTab(prof().lastTab === 'gen' ? 'gen' : 'chat'); toBottom(); });
-    try { if (document.hidden && prof().ntf && window.Notification && Notification.permission === 'granted') new Notification('Sora RFS', { body: text }); } catch (e) {}
+    try { if (document.hidden && prof().ntf && window.Notification && Notification.permission === 'granted') new Notification('Helix.ai', { body: text }); } catch (e) {}
   }
 
   /* ---------- ежедневная награда ---------- */
@@ -1377,7 +1440,7 @@ footer { flex: none; padding-block: 10px 12px; }
 
   /* ---------- знакомство ---------- */
   var ONB = [
-    ['<svg width="30" height="30" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4 4h16v12H8l-4 4z"/></svg>', 'Это Sora RFS', 'Чат-ассистент, который отвечает на вопросы, пишет и объясняет. А ещё «генерирует» видео и фото по твоему описанию.'],
+    ['<svg width="30" height="30" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4 4h16v12H8l-4 4z"/></svg>', 'Это Helix.ai', 'Чат-ассистент, который отвечает на вопросы, пишет и объясняет. А ещё «генерирует» видео и фото по твоему описанию.'],
     ['<svg width="30" height="30" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13 2 4 14h6l-1 8 9-12h-6z"/></svg>', 'Режимы на логотипе', 'Нажми на логотип, чтобы выбрать Fat, Slim или Pro. У каждого свои баллы, скорость и характер, а фон меняет цвет.'],
     ['<svg width="30" height="30" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.6 6.6L22 9.3l-5.5 4.7L18 21l-6-3.7L6 21l1.5-7L2 9.3l7.4-.7z"/></svg>', 'Баллы и бубопли', 'Баллы тратятся на генерации, бубопли на тарифы и докупку. Каждый день всё пополняется, а за серию входов дают награду.'],
     ['<svg width="30" height="30" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c.8-4.5 4-6.5 8-6.5s7.2 2 8 6.5z"/></svg>', 'Твой профиль', 'Нажми на аватар справа вверху: там фото, тариф, настройки, звуки и награда. История хранит всё созданное.']
@@ -1523,7 +1586,7 @@ footer { flex: none; padding-block: 10px 12px; }
   }
   function srvBlock() { var o = srvNow(); if (!o) return false; flashHint(outText(o)); sfx('bad'); return true; }
   var STATIC_NEWS = [
-    [Date.UTC(2026, 9, 11, 4, 0), 'upd', 'Sora RFS 1.0: добро пожаловать', 'Первый большой релиз. Чат, генерация видео и фото, режимы Fat, Slim и Pro, тарифы и бубопли.'],
+    [Date.UTC(2026, 9, 11, 4, 0), 'upd', 'Helix.ai 1.0: добро пожаловать', 'Первый большой релиз. Чат, генерация видео и фото, режимы Fat, Slim и Pro, тарифы и бубопли.'],
     [Date.UTC(2026, 9, 11, 3, 0), 'ok', 'Фото и видео для RFS 2', 'Модели RFS 2 теперь можно прикрепить свой файл к запросу на генерацию.'],
     [Date.UTC(2026, 9, 10, 18, 0), 'ok', 'RFS 2 Ultra умеет до 30 секунд', 'Самая мощная модель делает ролики на 10, 15, 20 и 30 секунд.'],
     [Date.UTC(2026, 9, 10, 12, 0), 'sale', 'Ежедневная награда и серия входов', 'Заходи каждый день: на 7-й день награда в десять раз больше первой.'],
@@ -1608,7 +1671,7 @@ footer { flex: none; padding-block: 10px 12px; }
 "Высшая детализация и реалистичность. Для финальных работ.":"Top detail and realism. For final work.",
 "Баллы режима ":"Points for mode ",
 " на сегодня закончились. Переключи режим или возвращайся завтра: баллы обновятся.":" ran out for today. Switch mode or come back tomorrow: points will refresh.",
-"Sora RFS может ошибаться. Важное лучше проверять.":"Sora RFS can make mistakes. Double-check anything important.",
+"Helix.ai может ошибаться. Важное лучше проверять.":"Helix.ai can make mistakes. Double-check anything important.",
 "Баллы на видео: ":"Video points: ",
 "Баллы режима: ":"Mode points: ",
 "Режим ":"Mode ",
@@ -1646,7 +1709,7 @@ footer { flex: none; padding-block: 10px 12px; }
 "Международный день кошек":"International Cat Day",
 "День Бубы":"Buba Day",
 "День знаний":"Knowledge Day",
-"День рождения Sora RFS":"Sora RFS Birthday",
+"День рождения Helix.ai":"Helix.ai Birthday",
 "Хэллоуин":"Halloween",
 "Зимняя распродажа":"Winter sale",
 "Весенняя распродажа":"Spring sale",
@@ -1699,7 +1762,7 @@ footer { flex: none; padding-block: 10px 12px; }
 "Забрать +":"Claim +",
 " бубоплей. Серия: ":" bubopli. Streak: ",
 "Ежедневная награда":"Daily reward",
-"Это Sora RFS":"This is Sora RFS",
+"Это Helix.ai":"This is Helix.ai",
 "Чат-ассистент, который отвечает на вопросы, пишет и объясняет. А ещё «генерирует» видео и фото по твоему описанию.":"A chat assistant that answers questions, writes and explains. It also “generates” videos and photos from your description.",
 "Режимы на логотипе":"Modes on the logo",
 "Нажми на логотип, чтобы выбрать Fat, Slim или Pro. У каждого свои баллы, скорость и характер, а фон меняет цвет.":"Tap the logo to pick Fat, Slim or Pro. Each has its own points, speed and character, and the background changes color.",
@@ -1728,7 +1791,7 @@ footer { flex: none; padding-block: 10px 12px; }
 "Сервера отказались работать":"The servers stopped working",
 "Модель снова заработала":"The model is back up",
 " временно не работает":" is temporarily down",
-"Sora RFS 1.0: добро пожаловать":"Sora RFS 1.0: welcome",
+"Helix.ai 1.0: добро пожаловать":"Helix.ai 1.0: welcome",
 "Первый большой релиз. Чат, генерация видео и фото, режимы Fat, Slim и Pro, тарифы и бубопли.":"The first big release. Chat, video and photo generation, Fat, Slim and Pro modes, plans and bubopli.",
 "Фото и видео для RFS 2":"Photo and video for RFS 2",
 "Модели RFS 2 теперь можно прикрепить свой файл к запросу на генерацию.":"RFS 2 models now let you attach your own file to a generation request.",
@@ -1799,7 +1862,7 @@ footer { flex: none; padding-block: 10px 12px; }
 "Плохой ответ":"Bad answer",
 "Скачать":"Download",
 "Поделиться":"Share",
-"Из Sora RFS":"From Sora RFS",
+"Из Helix.ai":"From Helix.ai",
 "Ответы доступны только когда страница открыта в Claude.":"Answers are only available when the page is open in Claude.",
 "Доступ к ответам не разрешён. Разрешите его в запросе и повторите.":"Access to answers was not granted. Allow it in the prompt and try again.",
 "Слишком много запросов. Подождите немного и повторите.":"Too many requests. Wait a moment and try again.",
@@ -1890,7 +1953,7 @@ footer { flex: none; padding-block: 10px 12px; }
 "Промо":"Promo",
 "Новости":"News",
 "Ответы работают, когда страница открыта в Claude. Здесь связи с ассистентом нет.":"Replies work when the page is open in Claude. There is no connection to the assistant here.",
-"Привет! Я – Sora RFS. Помогу с разными задачами, задай мне любой вопрос, и я тебе отвечу.":"Hi! I am Sora RFS. I can help with all sorts of tasks, ask me anything and I will answer.",
+"Привет! Я – Helix.ai. Помогу с разными задачами, задай мне любой вопрос, и я тебе отвечу.":"Hi! I am Helix.ai. I can help with all sorts of tasks, ask me anything and I will answer.",
 "Все":"All",
 "Ошибки":"Errors",
 "Промокоды":"Promo codes",
@@ -2078,7 +2141,7 @@ footer { flex: none; padding-block: 10px 12px; }
     var lo = el('button', 'mbtn alt'); lo.type = 'button'; lo.textContent = 'Выйти из аккаунта';
     lo.addEventListener('click', logout);
     var tier = p.tariff, TS = TSTYLE[tier] || TSTYLE.lite;
-    var hero = el('div', 'phero'), pav = el('div', 'pav'), msg = el('div', 'pacc');
+    var hero = el('div', tier !== 'lite' ? 'phero sub' : 'phero'), pav = el('div', 'pav'), msg = el('div', 'pacc');
     function paintAv() { var n = avNode(0); pav.replaceChildren(n, cam); rm.hidden = !prof().av; headKey = ''; renderHead(); }
     var file = el('input'); file.type = 'file'; file.accept = 'image/*'; file.hidden = true;
     var cam = el('button', 'pcam'); cam.type = 'button'; cam.setAttribute('aria-label', 'Загрузить фото профиля');
@@ -2378,7 +2441,7 @@ footer { flex: none; padding-block: 10px 12px; }
   }
   function addBot() {
     var d = el('div', 'msg bot');
-    d.setAttribute('role', 'group'); d.setAttribute('aria-label', 'Sora RFS');
+    d.setAttribute('role', 'group'); d.setAttribute('aria-label', 'Helix.ai');
     var who = el('div', 'who');
     var av = el('img'); av.src = LOGO; av.alt = ''; av.width = 26; av.height = 26;
     who.append(av);
@@ -2468,12 +2531,12 @@ footer { flex: none; padding-block: 10px 12px; }
     if (entry.kind !== 'egg') bar.append(redo);
     if (entry.kind === 'genvideo' || entry.kind === 'genimage') {
       bar.append(mkAct('', 'Скачать', ICON.dl, function () {
-        var a = el('a'); a.href = entry.vs; a.download = entry.kind === 'genimage' ? 'sora-rfs-image.jpg' : 'sora-rfs-video.mp4'; a.rel = 'noopener';
+        var a = el('a'); a.href = mediaSrc(entry.vs); a.download = entry.kind === 'genimage' ? 'sora-rfs-image.jpg' : 'sora-rfs-video.mp4'; a.rel = 'noopener';
         document.body.append(a); a.click(); a.remove();
       }), mkAct('', 'Поделиться', ICON.share, function (b) {
-        var url; try { url = new URL(entry.vs, location.href).href; } catch (e) { url = entry.vs; }
+        var url; try { url = new URL(mediaSrc(entry.vs), location.href).href; } catch (e) { url = entry.vs; }
         var done = function () { b.innerHTML = ICON.check; setTimeout(function () { b.innerHTML = ICON.share; }, 1400); };
-        if (navigator.share) { navigator.share({ title: 'Sora RFS', text: 'Из Sora RFS', url: url }).catch(function () {}); }
+        if (navigator.share) { navigator.share({ title: 'Helix.ai', text: 'Из Helix.ai', url: url }).catch(function () {}); }
         else { try { navigator.clipboard.writeText(url).then(done, function () {}); } catch (e) {} }
       }));
     }
@@ -2651,9 +2714,9 @@ footer { flex: none; padding-block: 10px 12px; }
       function (k) { return '«' + k + '» — звучит любопытно. Если нужно видео или фото, напиши «сгенерируй видео про…».'; }
     ];
     var EN = {
-      greet: ['Hi! I am Sora. What shall we do today?', 'Hello! Ask me anything, or try “generate a video”.', 'Hey! Good to see you.'],
+      greet: ['Hi! I am Helix. What shall we do today?', 'Hello! Ask me anything, or try “generate a video”.', 'Hey! Good to see you.'],
       how: ['I am great: servers are up and bubopli are in my pocket. How about you?', 'Doing fine, thanks for asking. And you?'],
-      who: ['I am Sora RFS, your assistant inside this app. I can chat, count, joke and “generate” videos and photos.'],
+      who: ['I am Helix.ai, your assistant inside this app. I can chat, count, joke and “generate” videos and photos.'],
       can: ['I can chat, joke, share facts, calculate (try “2+2*3”), flip a coin, roll a dice and “generate” videos and photos.'],
       thanks: ['You are welcome!', 'Always happy to help.'],
       bye: ['Bye! Come back soon.', 'See you later!'],
@@ -2666,11 +2729,11 @@ footer { flex: none; padding-block: 10px 12px; }
     };
     var RULES = [
       { k: 'greet', re: /^(?:\s*(?:привет|здравствуй|здарова|хай|ку|салют|добр(?:ый|ое|ого)\s+\S+|hello|hi|hey|yo)(?![а-яёa-z]))/i,
-        ru: ['Привет! Я Sora. Чем займёмся?', 'Здравствуй! Спрашивай что угодно или попроси «сгенерируй видео».', 'Привет-привет! Рад тебя видеть.', 'Хай! Что у тебя на уме?'] },
+        ru: ['Привет! Я Helix. Чем займёмся?', 'Здравствуй! Спрашивай что угодно или попроси «сгенерируй видео».', 'Привет-привет! Рад тебя видеть.', 'Хай! Что у тебя на уме?'] },
       { k: 'how', re: /как\s+(?:у\s+тебя\s+)?(?:дела|жизнь|ты|настроение|поживаешь)|how are you|what'?s up/i,
         ru: ['У меня всё отлично: серверы на месте, бубопли в кармане. А у тебя как?', 'Прекрасно, спасибо! А ты как?', 'Работаю, не жалуюсь. Расскажи, как твой день?'] },
       { k: 'who', re: /кто\s+ты|ты\s+кто|как\s+тебя\s+зовут|твоё\s+имя|твое\s+имя|представься|who are you|your name/i,
-        ru: ['Я Sora RFS: ассистент в этом приложении. Могу болтать, шутить, считать и «генерировать» видео и фото.'] },
+        ru: ['Я Helix.ai: ассистент в этом приложении. Могу болтать, шутить, считать и «генерировать» видео и фото.'] },
       { k: 'can', re: /что\s+(?:ты\s+)?умеешь|чем\s+можешь|что\s+можешь|твои\s+возможности|что\s+ты\s+можешь|^\s*(?:помощь|help|команды)\s*[.!?]*\s*$|what can you do/i,
         ru: ['Умею болтать, шутить, рассказывать факты, считать (попробуй «2+2*3»), бросать монетку и кубик, выбирать из вариантов и «генерировать» видео и фото. Ещё знаю всё про баллы, режимы, тарифы и промокоды.'] },
       { k: 'thanks', re: /спасиб|благодар|thank/i, ru: ['Пожалуйста!', 'Обращайся!', 'Всегда рад помочь.'] },
@@ -2693,10 +2756,10 @@ footer { flex: none; padding-block: 10px 12px; }
         ru: ['Чтобы получить видео или фото, открой вкладку «Генерация», выбери модель и напиши промт. Или просто напиши в чате: «сгенерируй видео про Бубу». Можно и прикрепить свою фотографию.'],
         en: ['Open the Generation tab, pick a model and write a prompt. Or just type “generate a video about Buba” right here. You can attach your own photo too.'] },
       { k: 'poem', re: /стих|поэм|рифм|\bpoem\b/i,
-        ru: ['Тихо светит экран в темноте,\nВ нём Sora ждёт и мечтает о тебе.\nЗадай вопрос, я постараюсь,\nИ в каждой шутке отыграюсь.', 'Бубопли звенят в кармане,\nВидео бегут в экране.\nНажми на звезду, не зевай,\nИ награду получай!'] },
+        ru: ['Тихо светит экран в темноте,\nВ нём Helix ждёт и мечтает о тебе.\nЗадай вопрос, я постараюсь,\nИ в каждой шутке отыграюсь.', 'Бубопли звенят в кармане,\nВидео бегут в экране.\nНажми на звезду, не зевай,\nИ награду получай!'] },
       { k: 'code', re: /код|программ|скрипт|python|javascript|\bjs\b|\bcode\b/i,
-        ru: ['Вот простой пример на Python:\n\nfor i in range(1, 6):\n    print("Привет, Sora!", i)\n\nЗапусти, и он напечатает приветствие пять раз. Для сложных задач я пока тренируюсь.'],
-        en: ['A tiny Python example:\n\nfor i in range(1, 6):\n    print("Hello, Sora!", i)\n\nIt prints a greeting five times.'] },
+        ru: ['Вот простой пример на Python:\n\nfor i in range(1, 6):\n    print("Привет, Helix!", i)\n\nЗапусти, и он напечатает приветствие пять раз. Для сложных задач я пока тренируюсь.'],
+        en: ['A tiny Python example:\n\nfor i in range(1, 6):\n    print("Hello, Helix!", i)\n\nIt prints a greeting five times.'] },
       { k: 'translate', re: /переведи|перевод|translate/i,
         ru: ['Перевод это пока не мой конёк в этом режиме, но смотри: «привет» это hello, «спасибо» это thank you, «пока» это bye. Больше слов могу подсказать по запросу.'], en: ['I know only basics: hello, thank you, bye. Ask for more words.'] }
     ];
@@ -2706,7 +2769,7 @@ footer { flex: none; padding-block: 10px 12px; }
       { re: /лръ|лрь|дййй/i, ru: ['«Лръ дййййй» это мой фирменный крик, когда генератор не справляется. Расшифровки нет, и в этом вся красота.', 'Лръ дййййй! Так звучит сервер, который перегрелся. Не пытайся понять, просто прочувствуй.'], en: ['“Lr dyyyy” is my signature cry when the generator gives up. No translation, and that is the beauty of it.'] },
       { re: /меллстро|mellstroy|мелстрой|мелл\s*строй/i, ru: ['Меллстрой это российский стример, ставший мемом: его стримы разошлись на цитаты и нарезки. В нашем приложении его имя можно встретить в шутках и промтах.', 'Меллстрой: громкий стример и герой интернет-мемов. Подробности о его жизни не обсуждаю, но мем знаю.'], en: ['Mellstroy is a Russian streamer who turned into a meme. I know the memes, not the gossip.'] },
       { re: /лук\s*чеснок|луком?\s+чесноком/i, ru: ['Лук Чеснок это те, кто «разбомбил сервера» в наших новостях. Когда приходит сообщение про бомбёжку, значит, они опять постарались. Восстановление занимает от 10 минут до 2 часов.'], en: ['Luk Chesnok is who “bombed the servers” in our news. Recovery takes from 10 minutes to 2 hours.'] },
-      { re: /бубопл|bubopli/i, ru: ['Бубопли это внутренняя валюта приложения. На них покупают баллы и тарифы, их дают за промокоды, награды и мини-игру. Особенно щедрый код: BUBAPLI.', 'Бубопли: валюта Sora RFS. Копи их, тратя на баллы для видео, фото и чата.'], en: ['Bubopli is the in-app currency. You buy points and plans with it, and earn it from promo codes, rewards and the mini-game.'] },
+      { re: /бубопл|bubopli/i, ru: ['Бубопли это внутренняя валюта приложения. На них покупают баллы и тарифы, их дают за промокоды, награды и мини-игру. Особенно щедрый код: BUBAPLI.', 'Бубопли: валюта Helix.ai. Копи их, тратя на баллы для видео, фото и чата.'], en: ['Bubopli is the in-app currency. You buy points and plans with it, and earn it from promo codes, rewards and the mini-game.'] },
       { re: /(?:кто|что)\s+так(?:ой|ая|ое)\s+буб[аыуе]|^\s*буба\s*\??\s*$|\bbooba\b|\bbuba\b(?!\s*(?:и|&))/i, ru: ['Буба это белый пушистый персонаж мультсериала «Буба» с большими ушами и вечной хитрой улыбкой. В нашем приложении у него целая подборка видео.', 'Буба: пушистый «нечто» из мультфильма, обожает еду и приключения. Попроси «сгенерируй видео про Бубу», и я покажу.'], en: ['Booba is a fluffy white cartoon creature with big ears and a sly smile. Ask me to “generate a video about Buba”.'] },
       { re: /маша\s+и\s+медвед|медвед[ьяю]|\bmasha\b/i, ru: ['«Маша и Медведь»: российский мультсериал про непоседливую девочку и добродушного медведя, которого она регулярно выводит из себя. Видео про них есть во всех моделях.', 'Маша и Медведь, классика! Попроси видео про них, и я найду подходящее.'], en: ['“Masha and the Bear” is a Russian cartoon about a restless girl and a good-natured bear. We have videos with them.'] },
       { re: /скибиди|skibidi/i, ru: ['Скибиди-туалет: мем про поющие унитазы. Нет, я не стану петь.'], en: ['Skibidi toilet: the singing-toilets meme. No, I will not sing.'] },
@@ -2716,10 +2779,10 @@ footer { flex: none; padding-block: 10px 12px; }
       { re: /ultra|ультра/i, ru: ['RFS 2 Ultra: флагман. Максимум качества и самые длинные ролики, до 30 секунд. Самая дорогая, зато лучшая. Только в нём есть видео про ограбления.'], en: ['RFS 2 Ultra is the flagship: top quality and clips up to 30 seconds. The priciest but the best.'] },
       { re: /rfs\s*2\s*pro|2\s*pro\b/i, ru: ['RFS 2 Pro: больше деталей и плавнее движение. Для роликов, которыми не стыдно поделиться. Только 10 секунд.'], en: ['RFS 2 Pro: more detail and smoother motion. 10-second clips only.'] },
       { re: /rfs\s*lite|\blite\b|лайт/i, ru: ['RFS Lite: самая быстрая и дешёвая модель. Простые ролики по 10 секунд за минимум баллов, чтобы проверить идею.'], en: ['RFS Lite is the fastest and cheapest model. Simple 10-second clips for minimum points.'] },
-      { re: /image\s*2\.?0?\s*pro|image\s*pro/i, ru: ['Sora RFS Image 2.0 Pro: высшая детализация и реалистичность. Для финальных работ.'], en: ['Sora RFS Image 2.0 Pro: top detail and realism for final work.'] },
-      { re: /image\s*2|image\s*2\.0/i, ru: ['Sora RFS Image 2.0: чёткие кадры с лучше проработанным светом и деталями.'], en: ['Sora RFS Image 2.0: sharp frames with better light and detail.'] },
-      { re: /image\s*1|image\s*1\.0/i, ru: ['Sora RFS Image 1.0: быстрые и недорогие кадры для идей и черновиков.'], en: ['Sora RFS Image 1.0: quick, cheap frames for ideas and drafts.'] },
-      { re: /rfs\s*2|\brfs\b|твои\s+модел|ваши\s+модел|какие\s+(?:у\s+(?:тебя|вас)\s+)?модел|свои\s+модел|модели\s+видео|модели\s+фото/i, ru: ['Наши модели видео: RFS Lite (быстрая и дешёвая), RFS 2 (основная, 10 или 15 с), RFS 2 Pro (качество, 10 с) и RFS 2 Ultra (флагман, до 30 с). Для фото: Sora RFS Image 1.0, 2.0 и 2.0 Pro. Спроси про любую из них подробнее.'], en: ['Video models: RFS Lite, RFS 2, RFS 2 Pro and RFS 2 Ultra. Photo models: Sora RFS Image 1.0, 2.0 and 2.0 Pro. Ask about any of them.'] },
+      { re: /image\s*2\.?0?\s*pro|image\s*pro/i, ru: ['Helix.ai Image 2.0 Pro: высшая детализация и реалистичность. Для финальных работ.'], en: ['Helix.ai Image 2.0 Pro: top detail and realism for final work.'] },
+      { re: /image\s*2|image\s*2\.0/i, ru: ['Helix.ai Image 2.0: чёткие кадры с лучше проработанным светом и деталями.'], en: ['Helix.ai Image 2.0: sharp frames with better light and detail.'] },
+      { re: /image\s*1|image\s*1\.0/i, ru: ['Helix.ai Image 1.0: быстрые и недорогие кадры для идей и черновиков.'], en: ['Helix.ai Image 1.0: quick, cheap frames for ideas and drafts.'] },
+      { re: /rfs\s*2|\brfs\b|твои\s+модел|ваши\s+модел|какие\s+(?:у\s+(?:тебя|вас)\s+)?модел|свои\s+модел|модели\s+видео|модели\s+фото/i, ru: ['Наши модели видео: RFS Lite (быстрая и дешёвая), RFS 2 (основная, 10 или 15 с), RFS 2 Pro (качество, 10 с) и RFS 2 Ultra (флагман, до 30 с). Для фото: Helix.ai Image 1.0, 2.0 и 2.0 Pro. Спроси про любую из них подробнее.'], en: ['Video models: RFS Lite, RFS 2, RFS 2 Pro and RFS 2 Ultra. Photo models: Helix.ai Image 1.0, 2.0 and 2.0 Pro. Ask about any of them.'] },
       { re: /\bfat\b|\bslim\b|режим\s+чат|режимы\s+чат|чем\s+отличаются\s+режим/i, ru: ['Режимы чата: Fat (0,5 балла за сообщение, быстрый и лёгкий), Slim (1 балл, баланс) и Pro (2 балла, самые вдумчивые ответы). Переключай их по нажатию на логотип в шапке.'], en: ['Chat modes: Fat (0.5 points per message), Slim (1) and Pro (2). Tap the logo to switch.'] },
       /* нейросети */
       { re: /какие\s+(?:есть\s+)?(?:нейросет|ии\b)|список\s+нейросет|назови\s+нейросет|популярные\s+нейросет|нейросети\s+(?:какие|есть)|какие\s+ты\s+знаешь\s+нейросет/i, ru: ['Из известных: текстовые ChatGPT (OpenAI), Claude (Anthropic), Gemini (Google), Grok, DeepSeek, Qwen, Llama, Mistral, а ещё российские YandexGPT и GigaChat. Для картинок: Midjourney, DALL·E, Stable Diffusion, Flux, Кандинский. Для видео: Sora (OpenAI), Veo, Kling, Runway, Pika, Luma, Seedance, Hailuo. И, конечно, наши RFS Lite, RFS 2, Pro и Ultra. Про любую могу рассказать подробнее.'], en: ['Text: ChatGPT, Claude, Gemini, Grok, DeepSeek, Qwen, Llama, Mistral. Images: Midjourney, DALL·E, Stable Diffusion, Flux. Video: Sora, Veo, Kling, Runway, Pika, Luma, Seedance. Plus our RFS models.'] },
@@ -2729,12 +2792,12 @@ footer { flex: none; padding-block: 10px 12px; }
       { re: /\bgrok\b|грок/i, ru: ['Grok это нейросеть компании xAI, с характером и склонностью к дерзким шуткам. Живёт в соцсети X.'], en: ['Grok is xAI’s chatbot, known for a cheeky style.'] },
       { re: /deepseek|дипсик/i, ru: ['DeepSeek это китайская нейросеть с открытыми моделями, прославилась тем, что показала сильный результат при небольших затратах.'], en: ['DeepSeek is a Chinese AI lab with open models, known for strong results at low cost.'] },
       { re: /яндекс\s*gpt|yandex\s*gpt|алис[аыуе]|гигачат|giga\s*chat|сбер/i, ru: ['Из российских нейросетей известны YandexGPT (на ней работает Алиса) и GigaChat от Сбера. Оба понимают русский язык особенно хорошо.'], en: ['YandexGPT (behind Alice) and Sber’s GigaChat are well-known Russian models.'] },
-      { re: /midjourney|миджорни|dall[\s-]*e|далли|stable\s*diffusion|стабл|\bflux\b|кандинск|kandinsky/i, ru: ['Из генераторов картинок известны Midjourney (красивые стилизованные кадры), DALL·E от OpenAI, Stable Diffusion и Flux (открытые модели) и российский Кандинский. А у нас для фото есть Sora RFS Image 1.0, 2.0 и 2.0 Pro.'], en: ['Image generators: Midjourney, DALL·E, Stable Diffusion, Flux. Ours: Sora RFS Image 1.0, 2.0, 2.0 Pro.'] },
+      { re: /midjourney|миджорни|dall[\s-]*e|далли|stable\s*diffusion|стабл|\bflux\b|кандинск|kandinsky/i, ru: ['Из генераторов картинок известны Midjourney (красивые стилизованные кадры), DALL·E от OpenAI, Stable Diffusion и Flux (открытые модели) и российский Кандинский. А у нас для фото есть Helix.ai Image 1.0, 2.0 и 2.0 Pro.'], en: ['Image generators: Midjourney, DALL·E, Stable Diffusion, Flux. Ours: Helix.ai Image 1.0, 2.0, 2.0 Pro.'] },
       { re: /\bveo\b|kling|клинг|runway|pika|luma|seedance|сидэнс|hailuo|omni\s*flash/i, ru: ['Среди видеонейросетей известны Veo (Google), Kling, Runway, Pika, Luma, Seedance и Hailuo. Если мои «ошибки генерации» советуют Omni Flash или Seedance 2.5, это шутка, но сами названия реальные. А у нас есть RFS Lite, RFS 2, Pro и Ultra.'], en: ['Video models: Veo, Kling, Runway, Pika, Luma, Seedance, Hailuo. And ours: RFS Lite, 2, Pro, Ultra.'] },
-      { re: /(?:openai\s+)?\bsora\b|сора(?![а-яё])/i, ru: ['Sora это видеомодель OpenAI, а Sora RFS, то есть я, это собственное приложение с нашими моделями RFS. Не путай: у нас всё своё.'], en: ['Sora is OpenAI’s video model; Sora RFS (me) is this app with our own RFS models.'] },
+      { re: /(?:openai\s+)?\bsora\b|сора(?![а-яё])/i, ru: ['Sora это видеомодель OpenAI, а Helix.ai, то есть я, это собственное приложение с нашими моделями RFS. Не путай: у нас всё своё.'], en: ['Sora is OpenAI’s video model; Helix.ai (me) is this app with our own RFS models.'] },
       { re: /что\s+такое\s+(?:нейросет|ии\b|искусственн)|как\s+работает\s+нейросет|what is (?:ai|a neural)/i, ru: ['Нейросеть это программа, которая учится на огромном количестве примеров и находит в них закономерности. Прочитала миллионы текстов и теперь продолжает фразы, посмотрела миллионы картинок и теперь рисует новые.'], en: ['A neural network is a program that learns patterns from huge amounts of examples, then writes text or makes images in a similar style.'] },
       { re: /ты\s+(?:настоящ|реальн)\w*\s+(?:нейросет|ии)|ты\s+нейросет|ты\s+(?:живой|человек|бот)|how do you work|are you (?:real|ai)/i, ru: ['Честно: я встроенный упрощённый ассистент. Работаю прямо в приложении без интернета, поэтому знаю много, но не всё. Зато мгновенно и бесплатно.'], en: ['Honestly: I am a simplified built-in assistant working offline, so I know a lot but not everything.'] },
-      { re: /что\s+такое\s+apk|\bapk\b/i, ru: ['APK это файл-установщик приложения для Android. Ты уже собрал свой: с ним Sora RFS работает прямо на телефоне.'], en: ['APK is the Android app installer file.'] },
+      { re: /что\s+такое\s+apk|\bapk\b/i, ru: ['APK это файл-установщик приложения для Android. Ты уже собрал свой: с ним Helix.ai работает прямо на телефоне.'], en: ['APK is the Android app installer file.'] },
       { re: /что\s+такое\s+python|питон/i, ru: ['Python это популярный язык программирования: простой для чтения, подходит для сайтов, данных и нейросетей.'], en: ['Python is a popular, readable programming language.'] },
       { re: /сколько\s+планет|how many planets/i, ru: ['В Солнечной системе 8 планет: Меркурий, Венера, Земля, Марс, Юпитер, Сатурн, Уран и Нептун. Плутон теперь считается карликовой.'], en: ['Eight: Mercury, Venus, Earth, Mars, Jupiter, Saturn, Uranus, Neptune.'] },
       { re: /скорост\w+\s+света|speed of light/i, ru: ['Скорость света в вакууме около 299 792 километров в секунду.'], en: ['About 299,792 km per second.'] },
@@ -2749,7 +2812,7 @@ footer { flex: none; padding-block: 10px 12px; }
       ['Меллстрой', 'Подробностей про него я не помню, знаю только, что стал мемом. Лучше посмотри нарезки сам.']
     ];
     var KB2 = [
-      { re: /(?:что\s+за|какие|твои|ваши|свои|покажи|назови|перечисли)\s+(?:у\s+(?:тебя|вас)\s+)?модел|модел[а-яё]*\s+(?:у\s+(?:тебя|вас)|приложени|rfs)|у\s+(?:тебя|вас)\s+(?:есть\s+)?(?:свои\s+)?модел|свои\s+нейросет|ваши\s+нейросет|твои\s+нейросет/i, ru: ['Наши модели видео: RFS Lite (быстрая и дешёвая), RFS 2 (основная, 10 или 15 с), RFS 2 Pro (качество, 10 с) и RFS 2 Ultra (флагман, до 30 с). Для фото: Sora RFS Image 1.0, 2.0 и 2.0 Pro. Спроси про любую из них подробнее.'] },
+      { re: /(?:что\s+за|какие|твои|ваши|свои|покажи|назови|перечисли)\s+(?:у\s+(?:тебя|вас)\s+)?модел|модел[а-яё]*\s+(?:у\s+(?:тебя|вас)|приложени|rfs)|у\s+(?:тебя|вас)\s+(?:есть\s+)?(?:свои\s+)?модел|свои\s+нейросет|ваши\s+нейросет|твои\s+нейросет/i, ru: ['Наши модели видео: RFS Lite (быстрая и дешёвая), RFS 2 (основная, 10 или 15 с), RFS 2 Pro (качество, 10 с) и RFS 2 Ultra (флагман, до 30 с). Для фото: Helix.ai Image 1.0, 2.0 и 2.0 Pro. Спроси про любую из них подробнее.'] },
       /* мемы */
       { re: /кринж|cringe/i, ru: ['Кринж это чувство неловкости за чужое (или своё) поведение. «Мне кринжово» значит «мне неловко».'] },
       { re: /(?:^|[^а-яё])рофл|\brofl\b|ржач/i, ru: ['Рофл это шутка, а «рофлить» значит шутить или смеяться. Пошло от английского ROFL: «катаюсь по полу от смеха».'] },
@@ -2772,7 +2835,7 @@ footer { flex: none; padding-block: 10px 12px; }
       { re: /eleven\s*labs|элевен|нейросет[а-яёa-z]*\s+для\s+(?:голос|озвуч|речи)|синтез[а-яёa-z]*\s+речи|whisper|виспер/i, ru: ['Для голоса: ElevenLabs озвучивает текст и клонирует голоса, а Whisper (OpenAI) наоборот превращает речь в текст.'] },
       { re: /hugging\s*face|хаггинг|huggingface/i, ru: ['Hugging Face это «GitHub для нейросетей»: там лежат тысячи открытых моделей и наборов данных.'] },
       { re: /нейросет[а-яёa-z]*\s+для\s+(?:кода|программ)|cursor|курсор|помощник\s+программист/i, ru: ['Для программирования популярны Claude Code, GitHub Copilot, Cursor и ChatGPT. Они пишут, объясняют и чинят код.'] },
-      { re: /нейросет[а-яёa-z]*\s+для\s+(?:картин|изображ|рисов|арт)/i, ru: ['Для картинок: Midjourney, DALL-E, Stable Diffusion, Flux, Kandinsky, а в нашем приложении Sora RFS Image 1.0, 2.0 и 2.0 Pro.'] },
+      { re: /нейросет[а-яёa-z]*\s+для\s+(?:картин|изображ|рисов|арт)/i, ru: ['Для картинок: Midjourney, DALL-E, Stable Diffusion, Flux, Kandinsky, а в нашем приложении Helix.ai Image 1.0, 2.0 и 2.0 Pro.'] },
       { re: /нейросет[а-яёa-z]*\s+для\s+видео|видео\s*нейросет|генератор[а-яёa-z]*\s+видео/i, ru: ['Для видео: Veo, Kling, Runway, Pika, Luma, Seedance, Hailuo и, конечно, наши RFS Lite, RFS 2, RFS 2 Pro и RFS 2 Ultra.'] },
       { re: /лучш[а-яёa-z]+\s+нейросет|какая\s+нейросет[а-яёa-z]*\s+лучше|самая\s+(?:умная|крутая|мощная)\s+нейросет/i, ru: ['Лучшей на все случаи нет: для текстов и кода сильны Claude, ChatGPT и Gemini, для картинок Midjourney и Flux, для видео Veo и Kling. А для весёлых роликов с Бубой, конечно, RFS 2.'] },
       { re: /(?:чем|в\s+чём)\s+(?:ты\s+)?(?:лучше|отличаешься)|ты\s+лучше\s+(?:чем\s+)?(?:chat|чат|gpt|клод|claude)|сравни\s+(?:себя|тебя)/i, ru: ['Я не умнее больших нейросетей, честно. Зато я живу прямо в твоём телефоне, не требую интернета для болтовни, знаю мемы про Бубу и умею «генерировать» видео из нашей коллекции.'] },
@@ -2781,7 +2844,7 @@ footer { flex: none; padding-block: 10px 12px; }
       { re: /галлюцинац|выдумыва[а-яёa-z]+\s+нейросет|нейросет[а-яёa-z]+\s+врёт|нейросет[а-яёa-z]+\s+вр[её]т/i, ru: ['Галлюцинация это когда нейросеть уверенно говорит неправду. Так бывает, потому что она угадывает правдоподобный текст, а не проверяет факты. Важное лучше проверять.'] },
       { re: /сколько\s+(?:есть\s+)?нейросет/i, ru: ['Их тысячи: одних только открытых моделей на Hugging Face сотни тысяч. Знаменитых несколько десятков, а тех, что в нашем приложении, семь.'] },
       /* твои модели и приложение */
-      { re: /на\s+(?:чём|чем)\s+ты\s+(?:работаешь|основан)|что\s+за\s+модел[а-яёa-z]+\s+ты|какая\s+ты\s+модел|ты\s+(?:основан|работаешь)\s+на|кто\s+тебя\s+(?:создал|сделал|разработал|придумал)|твой\s+(?:создатель|разработчик|автор)/i, ru: ['Я Sora RFS, ассистент внутри этого приложения. Меня придумал автор приложения, а в APK я работаю как упрощённый встроенный бот без интернета. Если подключить сервер, смогу отвечать как настоящая нейросеть.'] },
+      { re: /на\s+(?:чём|чем)\s+ты\s+(?:работаешь|основан)|что\s+за\s+модел[а-яёa-z]+\s+ты|какая\s+ты\s+модел|ты\s+(?:основан|работаешь)\s+на|кто\s+тебя\s+(?:создал|сделал|разработал|придумал)|твой\s+(?:создатель|разработчик|автор)/i, ru: ['Я Helix.ai, ассистент внутри этого приложения. Меня придумал автор приложения, а в APK я работаю как упрощённый встроенный бот без интернета. Если подключить сервер, смогу отвечать как настоящая нейросеть.'] },
       { re: /верси[а-яёa-z]+\s+(?:приложен|программ|sora)|релиз|обновлени[а-яёa-z]+\s+(?:приложен|sora)|какая\s+верси/i, ru: ['Сейчас у тебя версия 1.0, релиз. Новости об обновлениях появятся во вкладке «Новости».'] },
       { re: /как\s+(?:получить|заработать|набрать|достать)\s+(?:бубопл|баллы|очки)|где\s+(?:взять|брать)\s+бубопл/i, ru: ['Бубопли можно получить за ежедневную награду (чем длиннее серия, тем больше), за промокоды, в мини-игре «Ловец звёзд» и по праздникам. А ещё их можно купить.'] },
       { re: /как\s+(?:купить|оплатить|оформить)|где\s+(?:купить|оплатить)|способ\s+оплат/i, ru: ['Открой профиль и выбери «Баллы» или «Тарифы». Оплата проходит с шансом 50%, так что если не получилось, просто попробуй ещё раз.'] },
@@ -2837,7 +2900,7 @@ footer { flex: none; padding-block: 10px 12px; }
       { re: /seedance|сидэнс|сидане|сиденс/i, ru: ['Seedance это семейство видеомоделей ByteDance (создатели TikTok): ролики по тексту и по картинке с хорошим управлением кадром. Про версии 2.0 и 2.5 у меня мало точных данных, а такое быстро меняется, поэтому лучше смотри свежие обзоры. В нашем приложении я иногда советую Seedance как запасной вариант.'] },
       { re: /omni\s*flash|омни\s*флэш|омни\s*флеш/i, ru: ['Omni Flash: по названию это быстрая облегчённая модель из серии Omni, рассчитанная на скорость и недорогую генерацию. Точных характеристик у меня нет, и выдумывать их не буду. Когда у меня «не получается сгенерировать», я иногда советую попробовать её.'] },
       { re: /(?:^|[^а-яa-z])wan\s*(?:2|3|\d)?(?:[.\s]\d)?(?![а-яa-z])|ван\s*(?:2|3)|alibaba\s+(?:video|видео)/i, ru: ['Wan это семейство открытых видеомоделей от Alibaba: их можно скачать и запустить у себя, если хватит видеокарты. Любят за открытость и гибкость. Про Wan 3 у меня мало деталей, это новинка.'] },
-      { re: /sora\s*2|сора\s*2|sora2/i, ru: ['Sora 2 это видеомодель OpenAI: ролики со звуком и довольно правдоподобной физикой. Доступность и условия могли поменяться, проверяй свежие новости. И не путай: я Sora RFS, приложение с собственными моделями, а не продукт OpenAI.'] },
+      { re: /sora\s*2|сора\s*2|sora2/i, ru: ['Sora 2 это видеомодель OpenAI: ролики со звуком и довольно правдоподобной физикой. Доступность и условия могли поменяться, проверяй свежие новости. И не путай: я Helix.ai, приложение с собственными моделями, а не продукт OpenAI.'] },
       { re: /veo\s*3|veo\s*3\.1|вео\s*3|\bveo\b|вео\b/i, ru: ['Veo это видеомодели Google. Veo 3 научилась делать видео сразу со звуком и речью, а Veo 3.1 это улучшенная версия с лучшим контролем кадра и последовательностью.'] },
       { re: /kling|клинг|kuaishou|кува[ий]шоу/i, ru: ['Kling от Kuaishou (Китай) известна сильным, «живым» движением и реалистичными людьми. Версии 2.x стали очень популярны у создателей роликов.'] },
       { re: /hailuo|хайлуо|minimax|миниmax|минимакс/i, ru: ['Hailuo от MiniMax хорошо передаёт движение и эффекты и делает ролики быстро.'] },
@@ -3284,7 +3347,7 @@ footer { flex: none; padding-block: 10px 12px; }
     if (code === 'rate_limited') return 'Слишком много запросов. Подождите немного и повторите.' + (e && e.detail ? ' [' + e.detail + ']' : '');
     var dt = e && e.detail ? ' [' + e.detail + ']' : '';
     if (code === 'gemini_key') return 'Gemini не принял ключ. Проверьте его в профиле → «Чат: Gemini».' + dt;
-    if (code === 'gemini_fail') return 'Gemini сейчас недоступен. Повторите чуть позже.' + dt;
+    if (code === 'gemini_fail') return (e && e.status === 503 ? 'Высокий спрос на модель. Нажмите «Повторить», обычно со второй попытки всё получается.' : 'Gemini сейчас недоступен. Повторите чуть позже.') + dt;
     if (code === 'gemini_net') return 'Не удалось связаться с Gemini. Проверьте интернет.' + dt;
     return 'Не удалось получить ответ. Повторите попытку.';
   }
@@ -3454,8 +3517,62 @@ footer { flex: none; padding-block: 10px 12px; }
     return pool[i];
   }
   function findImage(src) {
+    if (typeof src === 'string' && src.indexOf('gen:') === 0) { var g = genImgs()[src]; return g ? { src: g.d, key: src, w: g.w, h: g.h } : null; }
     for (var i = 0; i < IMAGES.length; i++) if (IMAGES[i].src === src) return IMAGES[i];
     return null;
+  }
+  /* настоящие фото от Gemini: храним последние 12 в localStorage (сжатые), в истории ссылка вида gen:ID */
+  var GEN_KEY = 'sora-rfs-genimgs';
+  function genImgs() { try { return JSON.parse(localStorage.getItem(GEN_KEY) || '{}') || {}; } catch (e) { return {}; } }
+  function saveGenImg(id, d, w, h) {
+    var all = genImgs(); all[id] = { d: d, w: w, h: h, t: Date.now() };
+    var ids = Object.keys(all).sort(function (a, b) { return all[a].t - all[b].t; });
+    while (ids.length > 12) delete all[ids.shift()];
+    for (;;) { try { localStorage.setItem(GEN_KEY, JSON.stringify(all)); break; } catch (e) { var o = ids.shift(); if (!o || o === id) break; delete all[o]; } }
+  }
+  function mediaSrc(vs) { var m = findImage(vs); return m ? m.src : vs; }
+  function realImages() { return !!window.SORA_API && !window.claude; }
+  function shrinkImage(dataUrl) {
+    return new Promise(function (ok, no) {
+      var i = new Image();
+      i.onload = function () {
+        var k = Math.min(1, 1024 / Math.max(i.naturalWidth, i.naturalHeight)), w = Math.round(i.naturalWidth * k), h = Math.round(i.naturalHeight * k);
+        var c = document.createElement('canvas'); c.width = w; c.height = h; c.getContext('2d').drawImage(i, 0, 0, w, h);
+        var d; try { d = c.toDataURL('image/jpeg', .85); } catch (e) { d = dataUrl; }
+        ok({ d: d, w: w, h: h });
+      };
+      i.onerror = function () { no({ code: 'gemini_fail', detail: 'картинка не открылась' }); };
+      i.src = dataUrl;
+    });
+  }
+  function imageSample(prompt, ratio, sig) {
+    var url = window.SORA_API, body = { image: { prompt: prompt, ratio: ratio || '9:16' } };
+    var wait = new Promise(function (_, no) { setTimeout(function () { no({ code: 'gemini_net', detail: 'долго нет ответа' }); }, 110000); });
+    var req = fetch(url, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body), signal: sig })
+      .then(function (r) { return r.json().catch(function () { return null; }).then(function (j) { return { ok: r.ok, status: r.status, j: j }; }); },
+        function (err) {
+          var N = nativeHttp();
+          if ((sig && sig.aborted) || !N) throw { code: 'gemini_net', detail: String(err && err.message || err) };
+          return N.request({ url: url, method: 'POST', headers: { 'Content-Type': 'application/json' }, data: body, readTimeout: 110000, connectTimeout: 20000 }).then(function (res) {
+            var d = res.data; if (typeof d === 'string') { try { d = JSON.parse(d); } catch (e) { d = null; } }
+            return { ok: res.status >= 200 && res.status < 300, status: res.status, j: d };
+          });
+        })
+      .then(function (x) {
+        if (!x.ok || !x.j || !x.j.image) {
+          var m = (x.j && (x.j.error && x.j.error.message || x.j.error)) || '';
+          throw { code: x.status === 429 ? 'rate_limited' : 'gemini_fail', status: x.status, detail: String(m).slice(0, 200) };
+        }
+        return shrinkImage(x.j.image);
+      })
+      .then(function (r) { var id = 'gen:' + Date.now().toString(36); saveGenImg(id, r.d, r.w, r.h); return { src: r.d, key: id, w: r.w, h: r.h }; });
+    return Promise.race([req, wait]);
+  }
+  function imageErrText(e) {
+    var c = e && e.code, d = e && e.detail ? ' (' + e.detail + ')' : '';
+    if (c === 'rate_limited') return 'Лимит фото на сегодня исчерпан или модель занята. Баллы вернулись, попробуй позже.';
+    if (c === 'gemini_net') return 'Нет связи с сервером генерации. Баллы вернулись.' + d;
+    return 'Не удалось создать фото.' + d + ' Баллы вернулись.';
   }
   function showImage(bot, im) {
     var info = ratioInfo(im);
@@ -3616,8 +3733,10 @@ footer { flex: none; padding-block: 10px 12px; }
     noteBot.body.replaceChildren(np);
     function refund() { if (cost && !refunded) { refunded = true; refundVid(cost); } }
     var v = isVideo ? pickVideo(plan.group || 'any', plan.ratio, plan.model || 'rfs2', plan.dur || 10) : null;
-    var im = isVideo ? null : pickImage(plan.ratio, plan.model || 'i1');
-    var item = v || im, hasWin = !!item || isVideo;
+    var real = !isVideo && realImages();
+    var im = isVideo ? null : real ? null : pickImage(plan.ratio, plan.model || 'i1');
+    var realErr = null, fullPrompt = (plan.prompt || (function () { for (var i = history.length - 1; i >= 0; i--) if (history[i].role === 'user') return history[i].content; return ''; })()).slice(0, 1500);
+    var item = v || im, hasWin = !!item || isVideo || real;
     var shape = item || (plan.ratio === '16:9' ? { w: 16, h: 9 } : { w: 9, h: 16 });
     var bot = addBot();
     var wrap = el('div', 'gen' + (hasWin ? ' video' : ''));
@@ -3649,7 +3768,7 @@ footer { flex: none; padding-block: 10px 12px; }
     setBusy(true);
     ctrl = new AbortController();
     var sig = ctrl.signal;
-    var total = v ? durFor(v) : im ? 20000 + Math.floor(Math.random() * 15000) : 90000 + Math.floor(Math.random() * 30000);
+    var total = v ? durFor(v) : real ? 40000 : im ? 20000 + Math.floor(Math.random() * 15000) : 90000 + Math.floor(Math.random() * 30000);
     if (isVideo && modeKey() === 'pro') total = Math.max(20000, total - 20000); /* Pro быстрее на 20 секунд */
     if (im && modeKey() === 'pro') total = Math.max(10000, total - 8000);
     /* без «Бубы» всегда ошибка в конце; с «Бубой» иногда внезапная ошибка посреди процесса */
@@ -3659,7 +3778,7 @@ footer { flex: none; padding-block: 10px 12px; }
     var qDur = isVideo ? Math.min({ fat: 14000, slim: 8000, pro: 3000 }[modeKey()], total * 0.25) : 0;
     var rLabel = plan.ratio || (item ? ratioInfo(item).label : '9:16');
     function rec(o) { o.mn = model.n; o.ty = isVideo ? 'video' : 'photo'; o.r = rLabel; o.d = plan.dur || 10; if (!isVideo) o.d = 0; o.p = promptText; addHist(o); }
-    var failAt = item ? (Math.random() < pMid ? Math.floor(total * (0.2 + Math.random() * 0.7)) : 0) : total;
+    var failAt = real ? 0 : item ? (Math.random() < pMid ? Math.floor(total * (0.2 + Math.random() * 0.7)) : 0) : total;
     var t0 = Date.now(), pct = 0;
     var T = { tick: 0, anim: 0, nz: 0, end: 0, reveal: 0 };
     tm.textContent = 'Осталось ' + fmtTime(total);
@@ -3672,7 +3791,7 @@ footer { flex: none; padding-block: 10px 12px; }
       if (gone < qDur) {
         var pos = Math.max(1, Math.ceil(qStart * (1 - gone / qDur)));
         st.textContent = STAGES[0]; qe.hidden = false; qe.textContent = 'Очередь: №' + pos; pc.textContent = '0%'; fill.style.width = '0%';
-        tm.textContent = 'Осталось ' + fmtTime(total - gone);
+        tm.textContent = 'Осталось ' + fmtTime(Math.max(0, total - gone));
         if (screen && reduce) screen.draw(gone / 1000, pct);
         return;
       }
@@ -3681,14 +3800,14 @@ footer { flex: none; padding-block: 10px 12px; }
       pc.textContent = pct + '%';
       fill.style.width = pct + '%';
       st.textContent = STAGES[f < 0.15 ? 0 : f < 0.5 ? 1 : f < 0.85 ? 2 : 3];
-      tm.textContent = 'Осталось ' + fmtTime(total - gone);
+      tm.textContent = 'Осталось ' + fmtTime(Math.max(0, total - gone));
       if (screen && reduce) screen.draw(gone / 1000, pct);
     }, 800);
     if (screen && !reduce) {
       T.anim = setInterval(function () { screen.draw((Date.now() - t0) / 1000, pct); }, 90);
     }
     function finishErr() {
-      var e = pickErr();
+      var e = realErr ? { t: function () { return imageErrText(realErr); } } : pickErr();
       var text = e.t(label, Label);
       bot.root.classList.add('err');
       var p = el('p'); p.textContent = text;
@@ -3726,8 +3845,8 @@ footer { flex: none; padding-block: 10px 12px; }
       T.reveal = setTimeout(function () {
         if (im) {
           showImage(bot, im);
-          commit(bot, 'Я сгенерировал изображение по запросу.', { kind: 'genimage', vs: im.src });
-          stat('v'); rec({ k: 'i', vs: im.src }); gbtn.remove(); notifyGen(true, 'Фото готово');
+          commit(bot, 'Я сгенерировал изображение по запросу.', { kind: 'genimage', vs: im.key || im.src });
+          stat('v'); rec({ k: 'i', vs: im.key || im.src }); gbtn.remove(); notifyGen(true, 'Фото готово');
         } else {
           showVideo(bot, v, true, vd);
           commit(bot, 'Я сгенерировал видео по запросу.', { kind: 'genvideo', vs: v.src });
@@ -3762,7 +3881,10 @@ footer { flex: none; padding-block: 10px 12px; }
         if (nearBottom()) toBottom();
       }, 700);
     }
-    T.end = setTimeout(function () { if (failAt && failAt < total) fail(); else if (bonus) finishBonus(); else if (item) succeed(); else fail(); }, failAt || total);
+    if (real) {
+      imageSample(fullPrompt, plan.ratio || '9:16', sig).then(function (r) { if (gstate !== 'run' || sig.aborted) return; im = r; succeed(); },
+        function (e) { if (gstate !== 'run' || sig.aborted) return; realErr = e || {}; fail(); });
+    } else T.end = setTimeout(function () { if (failAt && failAt < total) fail(); else if (bonus) finishBonus(); else if (item) succeed(); else fail(); }, failAt || total);
     sig.addEventListener('abort', function () {
       stop(); gstate = 'gone'; gbtn.remove();
       refund();
@@ -3780,7 +3902,7 @@ footer { flex: none; padding-block: 10px 12px; }
     'Всегда пожалуйста. Облачко довольно.'
   ];
   var EGG_NAME = [
-    'Это моё имя! RFS расшифровывать не буду, это коммерческая тайна.',
+    'Это моё имя! Helix — как спираль ДНК: такая же закрученная, но куда умнее.',
     'Да, это я. Облачко с глазками и очень сложным характером.',
     'Услышал своё имя и сразу посмотрел на тебя. Видишь, глазки следят.'
   ];
