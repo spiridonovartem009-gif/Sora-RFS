@@ -1,7 +1,16 @@
 {
   "appId": "com.sorarfs.app",
-  "appName": "Sora RFS",
+  "appName": "Helix.ai",
   "webDir": "www",
-  "server": { "androidScheme": "https" },
-  "android": { "backgroundColor": "#060B22" }
+  "server": {
+    "androidScheme": "https"
+  },
+  "android": {
+    "backgroundColor": "#03140A"
+  },
+  "plugins": {
+    "CapacitorHttp": {
+      "enabled": true
+    }
+  }
 }
