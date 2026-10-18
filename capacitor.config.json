@@ -1,16 +1,16 @@
 {
   "appId": "com.sorarfs.app",
-  "appName": "Helix.ai",
+  "appName": "One",
   "webDir": "www",
   "server": {
     "androidScheme": "https"
   },
   "android": {
-    "backgroundColor": "#03140A"
+    "backgroundColor": "#141413"
   },
   "plugins": {
     "CapacitorHttp": {
-      "enabled": true
+      "enabled": false
     }
   }
 }
