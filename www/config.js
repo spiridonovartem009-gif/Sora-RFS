@@ -1,4 +1,4 @@
-window.SORA_API = 'https://helixai.belyashkinchinese.workers.dev/';
+window.SORA_API = 'https://tiny-mouse-bcd6.belyashkinchinese.workers.dev/';
 /* Встроенный ключ Gemini: вставь свой ключ между кавычками, например 'AIza...'. Тогда вводить его в профиле не нужно. */
 window.SORA_GEMINI_KEY = '';
 /* Страховка для Android WebView: если видео не стартует напрямую, пробуем загрузить его целиком и играть из памяти. */
