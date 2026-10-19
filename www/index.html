@@ -121,9 +121,44 @@ footer { flex: none; padding: 4px 12px calc(env(safe-area-inset-bottom) + 10px);
 .rb:hover { background: var(--s2); }
 .rb.send { background: var(--btn); color: var(--btnInk); }
 .rb.send:disabled { opacity: .35; cursor: default; }
-.pill { flex: 1; min-width: 0; min-height: 48px; border-radius: 26px; background: var(--s1); display: flex; align-items: center; padding: 0 18px; }
-.pill textarea { width: 100%; max-height: 160px; padding: 12px 0; border: 0; outline: none; resize: none; background: none; color: var(--red); font-size: 17px; line-height: 24px; font-weight: 500; display: block; }
+.pill { flex: 1; min-width: 0; min-height: 48px; border-radius: 26px; background: var(--s1); display: flex; align-items: center; gap: 8px; padding: 0 18px; }
+.pill textarea { flex: 1; min-width: 0; width: auto; max-height: 160px; padding: 12px 0; border: 0; outline: none; resize: none; background: none; color: var(--red); font-size: 17px; line-height: 24px; font-weight: 500; display: block; }
 .pill textarea::placeholder { color: var(--red2); opacity: .75; font-weight: 500; }
+
+/* плашка-оптимизатор */
+.hint { width: min(760px, 100%); margin: 0 auto; display: grid; grid-template-rows: 0fr; opacity: 0; visibility: hidden; transition: grid-template-rows .26s ease, opacity .22s ease, margin .26s ease, visibility 0s .26s; }
+.hint.on { grid-template-rows: 1fr; opacity: 1; visibility: visible; margin-bottom: 8px; transition-delay: 0s; }
+.hint > div { overflow: hidden; min-height: 0; }
+.hint .in { display: flex; align-items: center; gap: 10px; padding: 9px 8px 9px 16px; border-radius: 18px; background: var(--s1); border: 1px solid var(--line); font-size: 14px; line-height: 1.35; color: var(--red); }
+.hint .in span { flex: 1; min-width: 0; }
+.hint .go { flex: none; padding: 7px 15px; border-radius: 999px; background: var(--red); color: var(--onred); font-weight: 600; font-size: 14px; }
+.hint .no { flex: none; width: 30px; height: 30px; border-radius: 50%; display: grid; place-items: center; color: var(--red2); }
+.hint .no:hover { background: var(--s2); }
+
+/* команды через / */
+.cwrap { position: relative; width: min(760px, 100%); margin: 0 auto; }
+.cwrap .composer { width: 100%; }
+.cmenu { position: absolute; left: 0; right: 0; bottom: calc(100% + 8px); max-height: min(52vh, 430px); overflow-y: auto; padding: 6px; border-radius: 20px; background: var(--bg); border: 1px solid var(--line); box-shadow: 0 12px 32px rgba(0, 0, 0, .28); z-index: 12; opacity: 0; transform: translateY(8px); visibility: hidden; transition: opacity .18s ease, transform .18s ease, visibility 0s .18s; }
+.cmenu.on { opacity: 1; transform: none; visibility: visible; transition-delay: 0s; }
+.cgrp { padding: 10px 12px 4px; font-size: 12px; letter-spacing: .06em; text-transform: uppercase; color: var(--red2); }
+.citem { display: flex; align-items: baseline; gap: 12px; width: 100%; text-align: left; padding: 10px 12px; border-radius: 12px; }
+.citem b { flex: none; min-width: 86px; color: var(--red); font-family: var(--mono); font-weight: 600; font-size: 15px; }
+.citem span { color: var(--red2); font-size: 14px; line-height: 1.3; }
+.citem.act, .citem:hover { background: var(--s1); }
+.ctag { flex: none; align-self: flex-start; margin-top: 10px; display: inline-flex; align-items: center; gap: 6px; height: 28px; padding: 0 9px 0 12px; border-radius: 999px; background: var(--red); color: var(--onred); font-family: var(--mono); font-size: 14px; font-weight: 600; animation: pop .16s ease; }
+.ctag[hidden] { display: none; }
+.ctag svg { opacity: .8; }
+.ctag.mini { align-self: auto; margin: 0 8px 0 0; height: 22px; padding: 0 10px; font-size: 12.5px; vertical-align: 1px; animation: none; }
+@keyframes pop { from { transform: scale(.85); opacity: 0; } to { transform: none; opacity: 1; } }
+
+/* озвучка */
+.ttsb { flex: none; align-self: flex-end; margin: 0 -10px 6px 0; width: 36px; height: 36px; border-radius: 50%; display: grid; place-items: center; color: var(--red2); }
+.ttsb:hover { background: var(--s2); }
+.ttsb[aria-pressed="true"] { color: var(--red); background: var(--s2); }
+.ttsb[hidden] { display: none; }
+.vrow { display: flex; align-items: center; gap: 14px; }
+.vrow .vlogo { flex: none; color: var(--red); }
+.vrow .seg { flex: 1; }
 
 /* меню слева */
 .scrim { position: fixed; inset: 0; z-index: 30; background: var(--overlay); opacity: 0; transition: opacity .22s; }
@@ -211,11 +246,15 @@ footer { flex: none; padding: 4px 12px calc(env(safe-area-inset-bottom) + 10px);
   <main id="msgs" aria-live="polite"><div class="col" id="list"></div></main>
   <footer>
     <div id="tok" class="tok"></div>
+    <div id="hint" class="hint" aria-hidden="true"><div><div class="in"><span>🤖 Простой запрос. Переключитесь на Flame 1.0, чтобы сберечь токены.</span><button id="hintGo" class="go" type="button">Сберечь</button><button id="hintNo" class="no" type="button" aria-label="Скрыть подсказку"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div></div></div>
+    <div class="cwrap">
+    <div id="cmenu" class="cmenu" role="listbox" aria-label="Команды" aria-hidden="true"></div>
     <form id="composer" class="composer">
       <button id="plus" class="rb" type="button" aria-label="Новый чат"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></button>
-      <div class="pill"><label class="sr" for="inp">Сообщение</label><textarea id="inp" rows="1" maxlength="6000" placeholder="Спросите One"></textarea></div>
+      <div class="pill"><button id="ctag" class="ctag" type="button" hidden aria-label="Убрать команду"><span id="ctagT"></span><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></button><label class="sr" for="inp">Сообщение</label><textarea id="inp" rows="1" maxlength="6000" placeholder="Спросите One"></textarea><button id="tts" class="ttsb" type="button" aria-pressed="false" aria-label="Озвучка ответов" hidden></button></div>
       <button id="send" class="rb send" type="submit" aria-label="Отправить" disabled></button>
     </form>
+    </div>
   </footer>
 </div>
 
@@ -264,11 +303,14 @@ footer { flex: none; padding: 4px 12px calc(env(safe-area-inset-bottom) + 10px);
     copy: '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V6a2 2 0 012-2h9"/></svg>',
     check: '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>',
     lock: '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 018 0v3"/></svg>',
+    spkOn: '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9.5v5h3.5L12 18.5v-13L7.5 9.5z" fill="currentColor" fill-opacity=".15"/><path d="M15.5 9a4 4 0 010 6M18 6.5a7.5 7.5 0 010 11"/></svg>',
+    spkOff: '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9.5v5h3.5L12 18.5v-13L7.5 9.5z"/><path d="M16 9.5l5 5M21 9.5l-5 5"/></svg>',
+    voice: '<svg class="vlogo" width="44" height="44" viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-linecap="round"><circle cx="22" cy="22" r="20" stroke-width="2.2"/><path stroke-width="3.2" d="M13 20v4M17.5 15v14M22 10v24M26.5 15v14M31 20v4"/></svg>',
     x: '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>'
   };
 
   var token = LS.get('one-token') || '';
-  var ME = null, chats = [], cur = null, model = LS.get('one-model') || 'flame', abort = null, pinned = true;
+  var ME = null, chats = [], cur = null, model = LS.get('one-model') || 'flame', abort = null, pinned = true, cmd = null, hintOff = false;
   if (!MODELS[model]) model = 'flame';
 
   /* ---------- уведомление ---------- */
@@ -436,7 +478,8 @@ footer { flex: none; padding: 4px 12px calc(env(safe-area-inset-bottom) + 10px);
   function renderModel() {
     if (ME && !allowed(model)) model = 'flame';
     $('mname').textContent = MODELS[model].n;
-    $('inp').placeholder = 'Спросите One · ' + MODELS[model].n;
+    $('inp').placeholder = cmd ? CMDS[cmd].ph : 'Спросите One · ' + MODELS[model].n;
+    if (typeof updateHint === 'function') updateHint();
   }
   function openModels() {
     var box = $('mlist'); box.textContent = '';
@@ -496,6 +539,22 @@ footer { flex: none; padding: 4px 12px calc(env(safe-area-inset-bottom) + 10px);
       seg.append(x);
     });
     b.append(seg);
+    b.append(el('div', 'sect', 'Голос One'));
+    var vr = el('div', 'vrow'), vl = el('span'); vl.innerHTML = ICON.voice; vr.append(vl);
+    var vs = el('div', 'seg'); vs.setAttribute('role', 'radiogroup'); vs.setAttribute('aria-label', 'Голос озвучки');
+    [['female', 'Женский'], ['male', 'Мужской']].forEach(function (g) {
+      var x = el('button', '', g[1]); x.type = 'button'; x.setAttribute('role', 'radio'); x.setAttribute('aria-checked', TTS.gender === g[0]);
+      x.addEventListener('click', function () {
+        TTS.gender = g[0]; LS.set('one-voice', g[0]);
+        vs.querySelectorAll('button').forEach(function (o) { o.setAttribute('aria-checked', o === x); });
+        if (TTS.ok) speak('Привет! Это голос One.');
+      });
+      vs.append(x);
+    });
+    vr.append(vs); b.append(vr);
+    var vn = el('small', '', TTS.ok ? 'Озвучка включается значком динамика в поле ввода. Голос берётся из системы устройства.' : 'На этом устройстве озвучка недоступна.');
+    vn.style.cssText = 'display:block;margin-top:8px;color:var(--red2);font-size:12.5px';
+    b.append(vn);
     var lo = el('button', 'btn ghost', 'Выйти из аккаунта'); lo.type = 'button'; lo.style.marginTop = '26px';
     lo.addEventListener('click', function () { api('/api/logout', { method: 'POST' }).catch(function () {}).then(function () { $('asheet').hidden = true; dropSession(); }); });
     b.append(lo);
@@ -543,6 +602,150 @@ footer { flex: none; padding: 4px 12px calc(env(safe-area-inset-bottom) + 10px);
   }
   function rid() { return Date.now().toString(36) + Math.random().toString(36).slice(2, 8); }
 
+
+  /* ---------- матрица знаний: команды через / ---------- */
+  var CAT_ORDER = ['Текст', 'Разработка', 'Языки'];
+  var CMDS = {
+    clear: { cat: 'Текст', d: 'Краткий ответ без воды', ph: 'Задай вопрос: отвечу коротко…',
+      p: 'Отвечай максимально кратко и по делу: без вступлений, воды, повторов и лишних пояснений. Только суть, 1–3 предложения, если вопрос не требует большего.' },
+    summary: { cat: 'Текст', d: 'Саммари: суть и тезисы', ph: 'Вставь текст для саммари…',
+      p: 'Сделай структурированное саммари текста пользователя. Формат: сначала строка «Суть:» — одной фразой; затем «Тезисы:» — маркированный список ключевых мыслей. Без вступлений и оценок.' },
+    rewrite: { cat: 'Текст', d: 'Рерайт: улучшение стиля', ph: 'Вставь текст для рерайта…',
+      p: 'Выступи как профессиональный копирайтер: перепиши текст пользователя, улучшив стиль, ясность и ритм, но сохранив смысл и язык оригинала. Выдай готовый вариант, а в конце одной строкой отметь, что именно улучшено.' },
+    fix: { cat: 'Текст', d: 'Орфография и пунктуация', ph: 'Вставь текст для проверки…',
+      p: 'Исправь орфографию и пунктуацию в тексте пользователя, не меняя стиль и смысл. Сначала выдай исправленный текст целиком, затем коротким списком поясни основные ошибки.' },
+    code: { cat: 'Разработка', d: 'Чистый код без вступлений', ph: 'Опиши, какой код нужен…',
+      p: 'Выдай только чистый рабочий код в блоках форматирования с указанием языка. Никаких приветствий, вступлений, заключений и пояснений вне кода; нужные пояснения давай короткими комментариями прямо в коде.' },
+    bug: { cat: 'Разработка', d: 'Поиск ошибок и исправление', ph: 'Вставь код, где искать ошибки…',
+      p: 'Ты строгий ревьюер кода. Найди ошибки в коде пользователя. Сначала выдай исправленную версию целиком в блоке кода, затем списком разбери каждый баг: где он, почему это ошибка и что изменено. Если ошибок нет, скажи об этом и предложи улучшения.' },
+    english: { cat: 'Языки', d: 'Учитель английского', ph: 'Фраза для перевода или текст для разбора…',
+      p: 'Ты учитель английского. Если пользователь пишет фразу по-русски, переведи её на живой, естественный английский (как сказал бы носитель), при необходимости дай 1–2 альтернативы и пометь, где вариант разговорный. Если пользователь пишет по-английски, разбери ошибки: исправленный вариант и краткое объяснение каждой. Пояснения давай по-русски.' }
+  };
+  var cmenu = $('cmenu'), cItems = [], cSel = 0;
+  function setCmd(k) {
+    cmd = k && CMDS[k] ? k : null;
+    $('ctag').hidden = !cmd;
+    if (cmd) $('ctagT').textContent = '/' + cmd;
+    renderModel(); autosize();
+  }
+  function menuQuery() { var m = /^\/([a-zA-Z]*)$/.exec(inp.value); return m ? m[1].toLowerCase() : null; }
+  function hideMenu() { cmenu.classList.remove('on'); cmenu.setAttribute('aria-hidden', 'true'); }
+  function markSel() { cItems.forEach(function (o, i) { o.b.classList.toggle('act', i === cSel); o.b.setAttribute('aria-selected', i === cSel); }); var a = cItems[cSel]; if (a && a.b.scrollIntoView) a.b.scrollIntoView({ block: 'nearest' }); }
+  function pickCmd(k) { inp.value = ''; hideMenu(); setCmd(k); inp.focus(); }
+  function renderMenu() {
+    var q = menuQuery(); if (q === null) { hideMenu(); return; }
+    var keys = Object.keys(CMDS).filter(function (k) { return k.indexOf(q) === 0; });
+    if (!keys.length) { hideMenu(); return; }
+    cmenu.textContent = ''; cItems = [];
+    CAT_ORDER.forEach(function (cat) {
+      var ks = keys.filter(function (k) { return CMDS[k].cat === cat; }); if (!ks.length) return;
+      cmenu.append(el('div', 'cgrp', cat));
+      ks.forEach(function (k) {
+        var b = el('button', 'citem'); b.type = 'button'; b.setAttribute('role', 'option');
+        b.append(el('b', '', '/' + k), el('span', '', CMDS[k].d));
+        b.addEventListener('mousedown', function (e) { e.preventDefault(); });
+        b.addEventListener('click', function () { pickCmd(k); });
+        cmenu.append(b); cItems.push({ k: k, b: b });
+      });
+    });
+    cSel = Math.min(cSel, cItems.length - 1); markSel();
+    cmenu.setAttribute('aria-hidden', 'false'); cmenu.classList.add('on');
+  }
+  function cmdOf(content) { var m = /^\/([a-z]+) /.exec(content || ''); return m && CMDS[m[1]] ? m[1] : null; }
+  function plain(content) { var k = cmdOf(content); return k ? content.slice(k.length + 2) : content; }
+  function forModel(msgs) {
+    return msgs.map(function (m, i) {
+      if (m.role !== 'user') return { role: m.role, content: m.content };
+      var k = cmdOf(m.content), t = plain(m.content);
+      if (k && i === msgs.length - 1) t = '[Инструкция для ответа: ' + CMDS[k].p + ']\n\nЗапрос пользователя:\n' + t;
+      return { role: 'user', content: t };
+    });
+  }
+  $('ctag').addEventListener('click', function () { setCmd(null); inp.focus(); });
+
+  /* ---------- ассистент-оптимизатор токенов ---------- */
+  var CODE_RE = /[{}`;]|=>|(?:^|[^\p{L}\d_])(?:const|function|def|class|import|return)(?=$|[^\p{L}\d_])/iu;
+  var SIMPLE_RE = /(?:^|[^\p{L}])(?:привет\p{L}*|здравствуй\p{L}*|как дела|как жизнь|как ты|тест|test|hello|hi|hey|ку|хай|ты тут)(?=$|[^\p{L}])/iu;
+  function isSimple(t) {
+    t = (t || '').trim(); if (!t || CODE_RE.test(t)) return false;
+    return t.length < 35 || (t.length <= 70 && SIMPLE_RE.test(t));
+  }
+  function updateHint() {
+    var h = $('hint'); if (!h) return;
+    var on = !hintOff && !cmd && !abort && (model === 'silver' || model === 'professional') && isSimple(inp.value);
+    h.classList.toggle('on', on); h.setAttribute('aria-hidden', on ? 'false' : 'true');
+  }
+  $('hintGo').addEventListener('click', function () { model = 'flame'; LS.set('one-model', 'flame'); renderModel(); toast('Включена модель Flame 1.0'); inp.focus(); });
+  $('hintNo').addEventListener('click', function () { hintOff = true; updateHint(); inp.focus(); });
+
+  /* ---------- озвучка ответов (Web Speech API) ---------- */
+  var TTS = { ok: false, on: LS.get('one-tts') === '1', gender: LS.get('one-voice') === 'male' ? 'male' : 'female', voices: [] };
+  try { TTS.ok = !!(window.speechSynthesis && window.SpeechSynthesisUtterance); } catch (e) {}
+  function loadVoices() { try { TTS.voices = speechSynthesis.getVoices() || []; } catch (e) {} }
+  if (TTS.ok) { loadVoices(); try { speechSynthesis.addEventListener('voiceschanged', loadVoices); } catch (e) { speechSynthesis.onvoiceschanged = loadVoices; } }
+  var FEM_RE = /milena|alena|алён|алена|katya|катя|svetlana|светлан|irina|ирина|anna|анна|elena|елена|female|женск/i;
+  var MALE_RE = /(?:^|[^e])male|мужск|yuri|юрий|pavel|павел|dmitri|дмитри|maxim|максим|aleksandr|alexander|александр|ivan|иван/i;
+  function pickVoice() {
+    var ru = TTS.voices.filter(function (v) { return /^ru/i.test(v.lang || ''); });
+    var f = function (v) { return FEM_RE.test(v.name); }, m = function (v) { return !f(v) && MALE_RE.test(v.name); };
+    var want = TTS.gender === 'female' ? f : m, other = TTS.gender === 'female' ? m : f;
+    var hit = ru.filter(want)[0];
+    if (hit) return { voice: hit, pitch: 1, exact: true };
+    var any = ru.filter(function (v) { return !other(v); })[0] || ru[0] || null;
+    return { voice: any, pitch: TTS.gender === 'female' ? 1.15 : 0.7, exact: false };
+  }
+  function speechText(src) {
+    var t = String(src || '')
+      .replace(/```[\s\S]*?```/g, ' Здесь блок кода. ')
+      .replace(/!\[[^\]]*\]\([^)]*\)/g, ' ')
+      .replace(/\[([^\]]+)\]\([^)]*\)/g, '$1')
+      .replace(/https?:\/\/\S+/g, ' ссылка ')
+      .replace(/^\s{0,3}#{1,6}\s*/gm, '')
+      .replace(/^\s*(?:[-*+•]|\d+[.)])\s+/gm, '')
+      .replace(/^\s*>\s?/gm, '')
+      .replace(/^\s*\|?[\s:|-]{3,}\|?\s*$/gm, ' ')
+      .replace(/[`*_~#]/g, '').replace(/\|/g, ' ')
+      .replace(/[ \t]+/g, ' ')
+      .replace(/\s*\n+\s*/g, '. ')
+      .replace(/([.!?…])\s*\./g, '$1')
+      .replace(/\s+/g, ' ').trim();
+    return t;
+  }
+  function chunks(t) {
+    var parts = t.match(/[^.!?…]+[.!?…]*\s*/g) || [t], out = [], cur = '';
+    parts.forEach(function (p) {
+      if ((cur + p).length > 190 && cur) { out.push(cur); cur = ''; }
+      cur += p;
+      while (cur.length > 260) { var i = cur.lastIndexOf(',', 240); if (i < 60) i = cur.lastIndexOf(' ', 240); if (i < 60) i = 240; out.push(cur.slice(0, i + 1)); cur = cur.slice(i + 1); }
+    });
+    if (cur.trim()) out.push(cur);
+    return out;
+  }
+  function stopSpeak() { if (TTS.ok) { try { speechSynthesis.cancel(); } catch (e) {} } }
+  function speak(text) {
+    if (!TTS.ok) return;
+    var t = speechText(text); if (!t) return;
+    stopSpeak();
+    var v = pickVoice();
+    chunks(t).forEach(function (c) {
+      var u = new SpeechSynthesisUtterance(c.trim()); u.lang = 'ru-RU'; u.pitch = v.pitch; u.rate = 1;
+      if (v.voice) u.voice = v.voice;
+      try { speechSynthesis.speak(u); } catch (e) {}
+    });
+  }
+  function renderTts() {
+    var b = $('tts'); if (!TTS.ok) { b.hidden = true; return; }
+    b.hidden = false; b.innerHTML = TTS.on ? ICON.spkOn : ICON.spkOff;
+    b.setAttribute('aria-pressed', TTS.on ? 'true' : 'false');
+    b.setAttribute('aria-label', TTS.on ? 'Озвучка включена. Нажмите, чтобы выключить' : 'Озвучка выключена. Нажмите, чтобы включить');
+    b.title = TTS.on ? 'Озвучка: вкл' : 'Озвучка: выкл';
+  }
+  $('tts').addEventListener('click', function () {
+    TTS.on = !TTS.on; LS.set('one-tts', TTS.on ? '1' : '0'); renderTts();
+    if (TTS.on) speak('Озвучка включена'); else stopSpeak();
+  });
+  renderTts();
+
   /* ---------- чат ---------- */
   var list = $('list'), msgs = $('msgs'), inp = $('inp');
   msgs.addEventListener('scroll', function () { pinned = msgs.scrollHeight - msgs.scrollTop - msgs.clientHeight < 140; });
@@ -552,7 +755,11 @@ footer { flex: none; padding: 4px 12px calc(env(safe-area-inset-bottom) + 10px);
     e.append(i, el('p', '', 'Чем помочь?'), el('small', '', MODELS[model].n));
     return e;
   }
-  function addUser(text) { var m = el('div', 'msg user', text); list.append(m); return m; }
+  function addUser(text) {
+    var m = el('div', 'msg user'), k = cmdOf(text);
+    if (k) { m.append(el('span', 'ctag mini', '/' + k), document.createTextNode(plain(text))); } else m.textContent = text;
+    list.append(m); return m;
+  }
   function addBot(text) {
     var m = el('div', 'msg bot'), body = el('div', 'body'), acts = el('div', 'acts');
     var cp = el('button'); cp.type = 'button'; cp.innerHTML = ICON.copy; cp.setAttribute('aria-label', 'Копировать ответ');
@@ -568,12 +775,14 @@ footer { flex: none; padding: 4px 12px calc(env(safe-area-inset-bottom) + 10px);
     pinned = true; stick(true);
   }
   function newChat(silent) {
+    stopSpeak();
     if (abort) { try { abort.abort(); } catch (e) {} }
     cur = { id: rid(), title: 'Новый чат', messages: [] };
     renderChat(); renderList();
     if (!silent) inp.focus();
   }
   function openChat(id) {
+    stopSpeak();
     if (abort) { try { abort.abort(); } catch (e) {} }
     closeDrawer();
     api('/api/chats/' + id).then(function (j) { cur = { id: j.id, title: j.title, messages: j.messages || [] }; renderChat(); renderList(); }).catch(function (e) { toast(e.message); });
@@ -594,15 +803,28 @@ footer { flex: none; padding: 4px 12px calc(env(safe-area-inset-bottom) + 10px);
     b.setAttribute('aria-label', on ? 'Остановить' : 'Отправить');
     b.disabled = on ? false : !inp.value.trim();
     b.dataset.busy = on ? '1' : '';
+    if (on) { var h = $('hint'); if (h) h.classList.remove('on'); }
   }
   function autosize() { inp.style.height = 'auto'; inp.style.height = Math.min(inp.scrollHeight, 160) + 'px'; if (!abort) $('send').disabled = !inp.value.trim(); }
-  inp.addEventListener('input', autosize);
+  inp.addEventListener('input', function () {
+    var m = /^\/([a-zA-Z]+)\s/.exec(inp.value);
+    if (m && CMDS[m[1].toLowerCase()]) { var k = m[1].toLowerCase(); inp.value = inp.value.slice(m[0].length); hideMenu(); setCmd(k); }
+    if (!inp.value.trim()) hintOff = false;
+    autosize(); renderMenu(); updateHint();
+  });
   inp.addEventListener('keydown', function (e) {
+    if (cmenu.classList.contains('on') && cItems.length) {
+      if (e.key === 'ArrowDown') { e.preventDefault(); cSel = (cSel + 1) % cItems.length; markSel(); return; }
+      if (e.key === 'ArrowUp') { e.preventDefault(); cSel = (cSel - 1 + cItems.length) % cItems.length; markSel(); return; }
+      if (e.key === 'Enter' || e.key === 'Tab') { e.preventDefault(); pickCmd(cItems[cSel].k); return; }
+      if (e.key === 'Escape') { e.preventDefault(); hideMenu(); return; }
+    }
+    if (e.key === 'Backspace' && cmd && !inp.value) { e.preventDefault(); setCmd(null); return; }
     if (e.key === 'Enter' && !e.shiftKey && !(window.matchMedia && matchMedia('(pointer: coarse)').matches)) { e.preventDefault(); $('composer').requestSubmit(); }
   });
   $('composer').addEventListener('submit', function (e) {
     e.preventDefault();
-    if (abort) { abort.abort(); return; }
+    if (abort) { abort.abort(); stopSpeak(); return; }
     send();
   });
 
@@ -643,6 +865,8 @@ footer { flex: none; padding: 4px 12px calc(env(safe-area-inset-bottom) + 10px);
   function send() {
     var text = inp.value.trim();
     if (!text || abort) return;
+    stopSpeak(); hideMenu();
+    var usedCmd = cmd;
     var m = MODELS[model];
     if (!allowed(model)) { toast('Эта модель доступна с подпиской ' + m.badge); return; }
     if (ME.resetAt && ME.resetAt > Date.now() && ME.used + m.cost > ME.budget) {
@@ -650,17 +874,18 @@ footer { flex: none; padding: 4px 12px calc(env(safe-area-inset-bottom) + 10px);
     }
     var first = !cur.messages.length;
     if (first) list.textContent = '';
-    inp.value = ''; autosize();
-    cur.messages.push({ role: 'user', content: text });
+    inp.value = ''; hintOff = false; setCmd(null);
+    var stored = usedCmd ? '/' + usedCmd + ' ' + text : text;
+    cur.messages.push({ role: 'user', content: stored });
     if (first) cur.title = text.replace(/\s+/g, ' ').slice(0, 40);
-    addUser(text);
+    addUser(stored);
     var bot = addBot(''); bot.classList.add('typing');
     pinned = true; stick(true);
     abort = new AbortController(); setBusy(true);
     var acc = '', raf = 0;
     function paint() { raf = 0; var t = stripThink(acc); bot._text = t; md(bot.body, t); stick(); }
-    function undo(msgText) { cur.messages.pop(); inp.value = msgText; autosize(); }
-    streamChat(model, cur.messages.slice(-30), function (t) { acc += t; if (!raf) raf = requestAnimationFrame(paint); }, abort.signal).then(function (fin) {
+    function undo(msgText) { cur.messages.pop(); inp.value = msgText; setCmd(usedCmd); autosize(); }
+    streamChat(model, forModel(cur.messages.slice(-30)), function (t) { acc += t; if (!raf) raf = requestAnimationFrame(paint); }, abort.signal).then(function (fin) {
       if (raf) cancelAnimationFrame(raf);
       var t = stripThink(acc);
       if (!t) { bot.remove(); undo(text); notice('Модель не вернула текст. Попробуй ещё раз.'); refreshMe(); return; }
@@ -668,6 +893,7 @@ footer { flex: none; padding: 4px 12px calc(env(safe-area-inset-bottom) + 10px);
       cur.messages.push({ role: 'assistant', content: t });
       if (fin) { ME.used = fin.used; ME.resetAt = fin.resetAt; renderTok(); }
       saveChat();
+      if (TTS.on) speak(t);
     }).catch(function (e) {
       if (raf) cancelAnimationFrame(raf);
       var t = stripThink(acc);
@@ -690,7 +916,7 @@ footer { flex: none; padding: 4px 12px calc(env(safe-area-inset-bottom) + 10px);
       } else if (e && (e.status === 502 || e.status === 429)) { notice('Модель сейчас не ответила, токены вернулись. Попробуй ещё раз. (' + e.message + ')'); refreshMe();
       } else { notice((e && e.message) || 'Что-то пошло не так.'); refreshMe(); }
     }).then(function () {
-      abort = null; setBusy(false); bot.classList.remove('typing'); if (!cur.messages.length && !list.querySelector('.empty')) list.prepend(emptyState());
+      abort = null; setBusy(false); updateHint(); bot.classList.remove('typing'); if (!cur.messages.length && !list.querySelector('.empty')) list.prepend(emptyState());
     });
   }
 
